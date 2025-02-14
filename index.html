@@ -5,15 +5,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkmate</title>
     <link rel="stylesheet" href="srcs/style.css" />
-    <script type="module" src="srcs/index.js"></script>
+    <script type="module" src="srcs/dropdownCompany.js"></script>
+    <script type="module" src="srcs/dropdownRoutine.js"></script>
   </head>
 
-  <body class="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-200">
+  <body class="bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300">
     <header></header>
 
     <main class="main flex items-center justify-center p-4">
       <section class="container max-w-3xl p-4">
-        
+        <h1 class="text-3xl font-semibold mb-4">Olá, João 👋</h1>
+
+        <p class="text-sm mb-4">Existem quatro manutenções à tua espera.</p>
+
+        <form
+          class="block mt-8 border-1 border-gray-300 dark:border-gray-700 rounded-lg p-4"
+        >
+          <fieldset>
+            <legend class="block mb-2 text-lg dark:text-gray-200 font-medium">
+              Manutenção Preventiva
+            </legend>
+
+            <p class="text-sm mb-6">
+              Selecione a empresa e a periodicidade abaixo.
+            </p>
+
+            <label class="block mb-6">
+              <span class="block text-sm font-medium">Empresa</span>
+
+              <div class="relative">
+                <button
+                  type="menu"
+                  id="dropdown-company-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="dialog"
+                  aria-controls="dropdown-company"
+                  class="w-full flex justify-between items-center border-1 border-gray-300 dark:border-gray-700 p-3 my-2 rounded-lg dark:bg-gray-900 cursor-pointer text-sm"
+                >
+                  <span
+                    id="dropdown-company-selected"
+                    aria-live="polite"
+                    aria-labelledby="placeholder"
+                  >
+                    <span id="placeholder">Selecione uma opção</span>
+                  </span>
+
+                  <svg
+                    class="inline-block size-5 text-gray-600"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.6"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </button>
+
+                <menu
+                  class="invisible absolute w-full bg-gray-200 dark:bg-gray-800 border-1 border-gray-300 dark:border-gray-700 rounded-lg shadow-sm"
+                  id="dropdown-company"
+                  role="dialog"
+                  aria-hidden="true"
+                  aria-labelledby="dropdown-company-trigger"
+                >
+                  <input
+                    class="w-full border-b-1 border-gray-300 dark:border-gray-700 px-3 py-2 focus:outline-0 text-sm"
+                    type="text"
+                    id="dropdown-company-search"
+                    name="dropdown-company-search"
+                    role="combobox"
+                    aria-expanded="false"
+                    aria-autocomplete="list"
+                    autocomplete="off"
+                    aria-controls="dropdown-company-options"
+                    placeholder="Procurar..."
+                  />
+
+                  <ul
+                    class="max-h-36 overflow-scroll text-sm focus:outline-0"
+                    role="listbox"
+                    tabindex="0"
+                    id="dropdown-company-options"
+                  >
+                    <template id="dropdown-company-option-template">
+                      <li
+                        class="py-2 px-3 cursor-pointer hover:bg-gray-300 focus:bg-gray-300 dark:hover:bg-gray-700 dark:focus:bg-gray-700 active:bg-gray-300 dark:active:bg-gray-700 focus:outline-0 select-none dropdown-company-option"
+                        id=""
+                        role="option"
+                        tabindex="-1"
+                      ></li>
+                    </template>
+
+                    <li
+                      class="hidden py-2 px-3 text-gray-500"
+                      id="company-option-empty"
+                      role="option"
+                      tabindex="-1"
+                    >
+                      Sem resultados
+                    </li>
+                  </ul>
+                </menu>
+              </div>
+            </label>
+
+            <label class="block mb-6">
+              <span class="block text-sm font-medium">Periodicidade</span>
+
+              <div class="relative">
+                <button
+                  type="menu"
+                  id="dropdown-routine-trigger"
+                  aria-expanded="false"
+                  aria-haspopup="dialog"
+                  aria-controls="dropdown-routine"
+                  class="w-full flex justify-between items-center border-1 border-gray-300 dark:border-gray-700 p-3 my-2 rounded-lg dark:bg-gray-900 cursor-pointer text-sm"
+                >
+                  <span
+                    id="dropdown-routine-selected"
+                    aria-live="polite"
+                    aria-labelledby="placeholder"
+                  >
+                    <span id="placeholder">Selecione uma opção</span>
+                  </span>
+
+                  <svg
+                    class="inline-block size-5 text-gray-600"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.6"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                    />
+                  </svg>
+                </button>
+
+                <menu
+                  class="invisible absolute w-full bg-gray-200 dark:bg-gray-800 border-1 border-gray-300 dark:border-gray-700 rounded-lg shadow-sm"
+                  id="dropdown-routine"
+                  role="dialog"
+                  aria-hidden="true"
+                  aria-labelledby="dropdown-routine-trigger"
+                >
+                  <ul
+                    class="max-h-36 overflow-scroll text-sm focus:outline-0"
+                    role="listbox"
+                    tabindex="0"
+                    id="dropdown-routine-options"
+                  >
+                    <li
+                      class="py-2 px-3 cursor-pointer hover:bg-gray-300 focus:bg-gray-300 dark:hover:bg-gray-700 dark:focus:bg-gray-700 active:bg-gray-300 dark:active:bg-gray-700 focus:outline-0 select-none"
+                      id=""
+                      role="option"
+                      tabindex="-1"
+                    >
+                      Trimestral
+                    </li>
+
+                    <li
+                    class="py-2 px-3 cursor-pointer hover:bg-gray-300 focus:bg-gray-300 dark:hover:bg-gray-700 dark:focus:bg-gray-700 active:bg-gray-300 dark:active:bg-gray-700 focus:outline-0 select-none"
+                    id=""
+                    role="option"
+                    tabindex="-1"
+                  >
+                    Semestral
+                  </li>
+
+                  <li
+                  class="py-2 px-3 cursor-pointer hover:bg-gray-300 focus:bg-gray-300 dark:hover:bg-gray-700 dark:focus:bg-gray-700 active:bg-gray-300 dark:active:bg-gray-700 focus:outline-0 select-none dropdown-company-option"
+                  id=""
+                  role="option"
+                  tabindex="-1"
+                >
+                  Anual
+                </li>
+                  </ul>
+                </menu>
+              </div>
+            </label>
+
+            <button
+              type="button"
+              class="w-full px-5 py-1.5 rounded-lg font-semibold text-blue-100 bg-sky-700 active:translate-y-0.5 active:shadow-(--shadow-button-active) shadow-(--shadow-button)"
+            >
+              Iniciar
+            </button>
+          </fieldset>
+        </form>
       </section>
     </main>
 
