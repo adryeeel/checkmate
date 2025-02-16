@@ -141,9 +141,6 @@ const dropdownRoutine = {
   },
 };
 
-console.log(dropdownRoutine.elements.options);
-
-
 dropdownRoutine.elements.trigger.addEventListener("click", (e) => {
   dropdownRoutine.toggle();
   e.preventDefault();
