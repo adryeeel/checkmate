@@ -84,8 +84,14 @@ const dropdownCompany = {
     list.addEventListener(
       "click",
       (e) => {
+        const li = e.target.closest("li");
+
+        if (!li) {
+          return;
+        }
+
         const options = Array.from(this.elements.options);
-        const index = options.indexOf(e.target);
+        const index = options.indexOf(li);
 
         this._select(index);
       },
