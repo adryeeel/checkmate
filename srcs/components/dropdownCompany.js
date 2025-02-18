@@ -1,6 +1,4 @@
-const options = ["Apple", "Banana", "Cookie", "Damascus", "Emerald"];
-
-const dropdownCompany = {
+export const dropdownCompany = {
   elements: {
     container: document.querySelector("#dropdown-company"),
     list: document.querySelector("#dropdown-company-options"),
@@ -168,6 +166,13 @@ const dropdownCompany = {
     });
   },
 
+  isOpen() {
+    const container = this.elements.container;
+    const state = container.getAttribute("aria-hidden") === "true";
+
+    return !state;
+  },
+
   open() {
     this._toggleAria("aria-expanded", this.elements.search);
     this._toggleAria("aria-expanded", this.elements.trigger);
@@ -187,16 +192,6 @@ const dropdownCompany = {
   },
 
   toggle() {
-    const container = this.elements.container;
-    const state = container.getAttribute("aria-hidden") === "true";
-
-    state ? this.open() : this.close();
+    this.isOpen() ? this.close() : this.open();
   },
 };
-
-dropdownCompany.populate(options);
-
-dropdownCompany.elements.trigger.addEventListener("click", (e) => {
-  dropdownCompany.toggle();
-  e.preventDefault();
-});

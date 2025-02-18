@@ -1,4 +1,4 @@
-const dropdownRoutine = {
+export const dropdownRoutine = {
   elements: {
     container: document.querySelector("#dropdown-routine"),
     list: document.querySelector("#dropdown-routine-options"),
@@ -118,6 +118,13 @@ const dropdownRoutine = {
     });
   },
 
+  isOpen() {
+    const container = this.elements.container;
+    const state = container.getAttribute("aria-hidden") === "true";
+
+    return !state;
+  },
+
   open() {
     this._toggleAria("aria-expanded", this.elements.trigger);
     this._toggleAria("aria-hidden", this.elements.container);
@@ -134,14 +141,6 @@ const dropdownRoutine = {
   },
 
   toggle() {
-    const container = this.elements.container;
-    const state = container.getAttribute("aria-hidden") === "true";
-
-    state ? this.open() : this.close();
+    this.isOpen() ? this.close() : this.open();
   },
 };
-
-dropdownRoutine.elements.trigger.addEventListener("click", (e) => {
-  dropdownRoutine.toggle();
-  e.preventDefault();
-});
