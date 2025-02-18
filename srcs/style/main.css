@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+	--shadow-button: 0 0.3em 0 var(--color-blue-900);
+	--shadow-button-active: 0 0.1em 0 var(--color-blue-900);
+}
