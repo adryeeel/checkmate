@@ -3,8 +3,10 @@ export const dropdownCompany = {
     container: document.querySelector("#dropdown-company"),
     list: document.querySelector("#dropdown-company-options"),
     search: document.querySelector("#dropdown-company-search"),
+    loading: document.querySelector("#company-option-loading"),
     trigger: document.querySelector("#dropdown-company-trigger"),
     selected: document.querySelector("#dropdown-company-selected"),
+    fieldMessage: document.querySelector("#dropdown-company-message"),
     options: document.getElementsByClassName("dropdown-company-option"),
     optionEmpty: document.querySelector("#company-option-empty"),
     optionTemplate: document.querySelector("#dropdown-company-option-template"),
@@ -69,9 +71,13 @@ export const dropdownCompany = {
   _select(index) {
     const options = this.elements.options;
     const display = this.elements.selected;
+    const value = options[index].textContent.trim();
 
     display.setAttribute("aria-labelledby", options[index].id);
-    display.innerText = options[index].innerText;
+    display.setAttribute("data-value", value.toLowerCase());
+    display.textContent = value;
+
+    this.validate();
   },
 
   _navigation() {
@@ -154,16 +160,38 @@ export const dropdownCompany = {
   },
 
   populate(options) {
-    const list = this.elements.list;
-    const template = this.elements.optionTemplate;
+    const { list, optionTemplate } = this.elements;
 
     options.forEach((content, index) => {
-      const element = template.content.cloneNode(true).querySelector("li");
+      const element = optionTemplate.content
+        .cloneNode(true)
+        .querySelector("li");
       element.id = `company-option-${index}`;
       element.textContent = content;
 
       list.insertAdjacentElement("beforeend", element);
     });
+  },
+
+  getSelected() {
+    return this.elements.selected.getAttribute("data-value");
+  },
+
+  validate() {
+    const { fieldMessage } = this.elements;
+    const isSelected = this.getSelected();
+
+    if (!isSelected) {
+      fieldMessage.classList.remove("hidden");
+      fieldMessage.classList.add("inline-block");
+
+      return false;
+    }
+
+    fieldMessage.classList.add("hidden");
+    fieldMessage.classList.remove("inline-block");
+
+    return true;
   },
 
   isOpen() {

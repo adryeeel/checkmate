@@ -2,8 +2,10 @@ export const dropdownRoutine = {
   elements: {
     container: document.querySelector("#dropdown-routine"),
     list: document.querySelector("#dropdown-routine-options"),
+    loading: document.querySelector("#dropdown-routine-loading"),
     trigger: document.querySelector("#dropdown-routine-trigger"),
     selected: document.querySelector("#dropdown-routine-selected"),
+    fieldMessage: document.querySelector("#dropdown-routine-message"),
     options: document.querySelectorAll("#dropdown-routine-options > li"),
   },
 
@@ -66,9 +68,13 @@ export const dropdownRoutine = {
   _select(index) {
     const options = this.elements.options;
     const display = this.elements.selected;
+    const value = options[index].textContent.trim();
 
     display.setAttribute("aria-labelledby", options[index].id);
-    display.innerText = options[index].innerText;
+    display.setAttribute("data-value", value.toLowerCase());
+    display.textContent = value;
+
+    this.validate();
   },
 
   _navigation() {
@@ -116,6 +122,27 @@ export const dropdownRoutine = {
       options[index].focus();
       e.preventDefault();
     });
+  },
+
+  getSelected() {
+    return this.elements.selected.getAttribute("data-value");
+  },
+
+  validate() {
+    const { selected, fieldMessage } = this.elements;
+    const isSelected = selected.getAttribute("data-value");
+
+    if (!isSelected) {
+      fieldMessage.classList.remove("hidden");
+      fieldMessage.classList.add("inline-block");
+
+      return false;
+    }
+
+    fieldMessage.classList.add("hidden");
+    fieldMessage.classList.remove("inline-block");
+
+    return true;
   },
 
   isOpen() {
