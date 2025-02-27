@@ -5,7 +5,7 @@ export const dropdownRoutine = {
     loading: document.querySelector("#dropdown-routine-loading"),
     trigger: document.querySelector("#dropdown-routine-trigger"),
     selected: document.querySelector("#dropdown-routine-selected"),
-    fieldMessage: document.querySelector("#dropdown-routine-message"),
+    message: document.querySelector("#dropdown-routine-message"),
     options: document.querySelectorAll("#dropdown-routine-options > li"),
   },
 
@@ -63,6 +63,22 @@ export const dropdownRoutine = {
       },
       { once: true }
     );
+  },
+
+  _valid() {
+    const borderValid = ["border-1", "border-gray-300", "dark:border-gray-700"];
+    const borderInvalid = ["border-2", "border-rose-300", "dark:border-red-900"];
+
+    this.elements.trigger.classList.remove(...borderInvalid);
+    this.elements.trigger.classList.add(...borderValid);
+  },
+
+  _invalid() {
+    const borderValid = ["border-1", "border-gray-300", "dark:border-gray-700"];
+    const borderInvalid = ["border-2", "border-rose-300", "dark:border-red-900"];
+
+    this.elements.trigger.classList.remove(...borderValid);
+    this.elements.trigger.classList.add(...borderInvalid);
   },
 
   _select(index) {
@@ -129,19 +145,17 @@ export const dropdownRoutine = {
   },
 
   validate() {
-    const { selected, fieldMessage } = this.elements;
+    const { selected, message } = this.elements;
     const isSelected = selected.getAttribute("data-value");
 
     if (!isSelected) {
-      fieldMessage.classList.remove("hidden");
-      fieldMessage.classList.add("inline-block");
-
+      this._invalid();
+      message.classList.remove("hidden");
       return false;
     }
 
-    fieldMessage.classList.add("hidden");
-    fieldMessage.classList.remove("inline-block");
-
+    this._valid();
+    message.classList.add("hidden");
     return true;
   },
 

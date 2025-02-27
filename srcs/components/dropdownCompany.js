@@ -1,14 +1,16 @@
 export const dropdownCompany = {
+  isFetching: false,
+
   elements: {
     container: document.querySelector("#dropdown-company"),
     list: document.querySelector("#dropdown-company-options"),
     search: document.querySelector("#dropdown-company-search"),
     loading: document.querySelector("#company-option-loading"),
+    message: document.querySelector("#dropdown-company-message"),
     trigger: document.querySelector("#dropdown-company-trigger"),
     selected: document.querySelector("#dropdown-company-selected"),
-    fieldMessage: document.querySelector("#dropdown-company-message"),
-    options: document.getElementsByClassName("dropdown-company-option"),
     optionEmpty: document.querySelector("#company-option-empty"),
+    options: document.getElementsByClassName("dropdown-company-option"),
     optionTemplate: document.querySelector("#dropdown-company-option-template"),
   },
 
@@ -159,6 +161,22 @@ export const dropdownCompany = {
     });
   },
 
+  _valid() {
+    const borderValid = ["border-1", "border-gray-300", "dark:border-gray-700"];
+    const borderInvalid = ["border-2", "border-rose-300", "dark:border-red-900"];
+
+    this.elements.trigger.classList.remove(...borderInvalid);
+    this.elements.trigger.classList.add(...borderValid);
+  },
+
+  _invalid() {
+    const borderValid = ["border-1", "border-gray-300", "dark:border-gray-700"];
+    const borderInvalid = ["border-2", "border-rose-300", "dark:border-red-900"];
+
+    this.elements.trigger.classList.remove(...borderValid);
+    this.elements.trigger.classList.add(...borderInvalid);
+  },
+
   populate(options) {
     const { list, optionTemplate } = this.elements;
 
@@ -178,19 +196,17 @@ export const dropdownCompany = {
   },
 
   validate() {
-    const { fieldMessage } = this.elements;
+    const { message } = this.elements;
     const isSelected = this.getSelected();
 
     if (!isSelected) {
-      fieldMessage.classList.remove("hidden");
-      fieldMessage.classList.add("inline-block");
-
+      this._invalid();
+      message.classList.remove("hidden");
       return false;
     }
 
-    fieldMessage.classList.add("hidden");
-    fieldMessage.classList.remove("inline-block");
-
+    this._valid();
+    message.classList.add("hidden");
     return true;
   },
 
