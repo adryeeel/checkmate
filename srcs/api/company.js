@@ -19,8 +19,7 @@ const getCompanyClosure = () => {
       return cache;
     }
 
-    try 
-    {
+    try {
       const response = await fetch(`${URL}/dev/company`, request);
       const data = await response.json();
 
@@ -28,9 +27,7 @@ const getCompanyClosure = () => {
       cache = data.items;
 
       return data.items;
-    } 
-    catch (error)
-    {
+    } catch (error) {
       console.error(`Failed to fetch company data: ${error}`);
       throw new Error(error);
     }
