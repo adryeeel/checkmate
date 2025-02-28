@@ -1,13 +1,13 @@
-import { dropdownCompany } from "./dropdownCompany";
-import { dropdownRoutine } from "./dropdownRoutine";
+import { dropdownCompany } from "./dropdown-company";
+import { dropdownRoutine } from "./dropdown-routine";
 
-export const alert = {
+export const _alert = {
   elements: {
     container: document.querySelector("#alert"),
     message: document.querySelector("#alert-message"),
   },
 
-  _toggleAria(attribute, element) {
+  toggleAria(attribute, element) {
     const state = element.getAttribute(attribute) === "true";
     element.setAttribute(attribute, !state);
   },
@@ -29,30 +29,25 @@ export const alert = {
       return true;
     }
   },
+};
 
-  isOpen() {
-    const container = this.elements.container;
-    const state = container.getAttribute("aria-hidden") === "true";
-
-    return !state;
-  },
-
+export const alert = {
   open() {
-    this._toggleAria("aria-hidden", this.elements.container);
-    this.elements.container.classList.remove("hidden");
+    const { container } = _alert.elements;
+
+    _alert.toggleAria("aria-hidden", container);
+    container.classList.remove("hidden");
   },
 
   close() {
-    this._toggleAria("aria-hidden", this.elements.container);
-    this.elements.container.classList.add("hidden");
-  },
+    const { container } = _alert.elements;
 
-  toggle() {
-    this.isOpen() ? this.close() : this.open();
+    _alert.toggleAria("aria-hidden", container);
+    container.classList.add("hidden");
   },
 
   setMessage(message) {
-    const messageField = this.elements.message;
+    const messageField = _alert.elements.message;
     const span = messageField.querySelector("span");
 
     if (!message) {
@@ -64,15 +59,15 @@ export const alert = {
     messageField.classList.remove("hidden");
   },
 
-  observe() {
+  listen() {
     const elements = [
-      alert.elements.message,
+      _alert.elements.message,
       dropdownCompany.elements.message,
       dropdownRoutine.elements.message,
     ];
 
     const observer = new MutationObserver(() => {
-      alert.checkMessages() ? alert.open() : alert.close();
+      _alert.checkMessages() ? this.open() : this.close();
     });
 
     elements.forEach((element) => {
