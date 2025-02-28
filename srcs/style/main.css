@@ -3,4 +3,10 @@
 @theme {
 	--shadow-button: 0 0.3em 0 var(--color-blue-900);
 	--shadow-button-active: 0 0.1em 0 var(--color-blue-900);
+
+	--shadow-button-transp-dark: 0 0.3em 0 var(--color-gray-700);
+	--shadow-button-transp-active-dark: 0 0.1em 0 var(--color-gray-700);
+
+	--shadow-button-transp: 0 0.3em 0 var(--color-gray-300);
+	--shadow-button-transp-active: 0 0.1em 0 var(--color-gray-300);
 }
