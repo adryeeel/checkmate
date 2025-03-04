@@ -1,3 +1,5 @@
+import { postPicture } from "../api/post-picture";
+
 const _picturePreview = {
   elements: {
     container: document.querySelector("#picture-container"),
@@ -5,6 +7,32 @@ const _picturePreview = {
     input: document.querySelector("#picture-input"),
     remove: document.querySelector("#picture-remove"),
     button: document.querySelector("#picture-button"),
+  },
+
+  upload: {
+    container: document.querySelector("#upload-circle"),
+    done: document.querySelector("#upload-circle-done"),
+    circle: document.querySelector("#upload-circle-progress"),
+  },
+
+  showProgress(progress) {
+    const { container, circle, done } = this.upload;
+    const current = 101 - (progress * 101 / 100);
+
+    container.classList.add("opacity-100");
+    circle.setAttribute("stroke-dashoffset", current);
+
+    if (progress === 100) {
+      done.classList.add("opacity-100");
+    }
+  },
+
+  hideProgress() {
+    const { container, circle, done } = this.upload;
+
+    done.classList.remove("opacity-100");
+    container.classList.remove("opacity-100");
+    circle.setAttribute("stroke-dashoffset", 101);
   },
 
   disableButton() {
@@ -30,6 +58,7 @@ const _picturePreview = {
       input.value = "";
       preview.src = "";
       this.enableButton();
+      this.hideProgress();
       container.classList.add("hidden");
     });
   },
@@ -45,10 +74,21 @@ const _picturePreview = {
         return;
       }
 
-      reader.onload = (e) => {
+      reader.onload = async (event) => {
         this.disableButton();
-        preview.src = e.target.result;
+        preview.src = event.target.result;
         container.classList.remove("hidden");
+
+        try
+        {
+          const filename = pictureFile.name;
+          const base64image = event.target.result;
+          await postPicture(filename, base64image, progress => this.showProgress(progress));
+        }
+        catch (error)
+        {
+          console.error(error);
+        }
       };
 
       reader.readAsDataURL(pictureFile);

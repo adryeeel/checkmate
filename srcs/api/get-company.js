@@ -25,17 +25,16 @@ const getCompanyClosure = () => {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(`Failed to fetch company data: ${data.message}`);
+        throw new Error(`Ocorreu um erro na busca das empresas. Tente novamente.`);
       }
 
       fetched = true;
       cache = data.companies;
 
       return data.companies;
-
     }
     catch (error) {
-      console.error(error);
+      throw new Error(`Ocorreu um erro na busca das empresas. Tente novamente.`);
     }
   };
 };
