@@ -120,39 +120,101 @@ const _formChecklist = {
   },
 
   save() {
-    const { save: trigger } = this.buttons;
+    const { save } = this.buttons;
 
-    trigger.addEventListener("click", (event) => {
-      console.log("Save");
-      window.print();
+    save.addEventListener("click", (event) => {
+      const counter = this.getCounter();
+
+      if (counter.current === counter.total) {
+        window.print();
+      }
     });
+  },
+
+  getCounter() {
+    const { current, total } = this.counter;
+
+    const counter = {
+      total: Number(total.getAttribute("data-value")),
+      current: Number(current.getAttribute("data-value")),
+    }
+
+    return counter;
+  },
+
+  incrementCounter() {
+    const { current } = this.counter;
+    const counter = this.getCounter();
+
+    current.textContent = counter.current + 1;
+    current.setAttribute("data-value", counter.current + 1);
+  },
+
+  decrementCounter() {
+    const { current } = this.counter;
+    const counter = this.getCounter();
+
+    current.textContent = counter.current - 1;
+    current.setAttribute("data-value", counter.current - 1);
+  },
+
+  updatePrev({ updateCounter }) {
+    const { prev } = this.buttons;
+    const disabledStyles = ["pointer-events-none", "text-gray-300", "dark:text-gray-600"];
+
+    if (updateCounter) {
+      this.decrementCounter();
+    }
+
+    const counter = this.getCounter();
+
+    if (counter.current === 1) {
+      prev.classList.add(...disabledStyles);
+      return;
+    }
+
+    prev.classList.remove(...disabledStyles);
   },
 
   prev() {
-    const { prev: trigger } = this.buttons;
+    const { prev } = this.buttons;
 
-    trigger.addEventListener("click", (event) => {
-      console.log("Prev");
+    this.updatePrev({ updateCounter: false });
+
+    prev.addEventListener("click", (event) => {
+      this.updatePrev({ updateCounter: true });
+      this.updateNext({ updateCounter: false });
     });
   },
 
+  updateNext({ updateCounter }) {
+    const { next, save } = this.buttons;
+    const disabledStyles = ["pointer-events-none", "text-gray-300", "dark:text-gray-600"];
+
+    if (updateCounter) {
+      this.incrementCounter();
+    }
+
+    const counter = this.getCounter();
+
+    if (counter.total === counter.current) {
+      save.textContent = "Finalizar";
+      next.classList.add(...disabledStyles);
+      return;
+    }
+
+    save.textContent = "Salvar";
+    next.classList.remove(...disabledStyles);
+  },
+
   next() {
-    const { next: trigger, save } = this.buttons;
-    const { current, total } = this.counter;
+    const { next } = this.buttons;
 
-    trigger.addEventListener("click", (event) => {
-      const totalValue = Number(total.getAttribute("data-value"));
-      let currentValue = Number(current.getAttribute("data-value"));
+    this.updateNext({ updateCounter: false });
 
-      if (++currentValue === totalValue) {
-        save.textContent = "Finalizar";
-        return;
-      }
-
-      console.log(currentValue);
-
-      current.textContent = currentValue;
-      current.setAttribute("data-value", currentValue);
+    next.addEventListener("click", (event) => {
+      this.updateNext({ updateCounter: true });
+      this.updatePrev({ updateCounter: false });
     });
   },
 
