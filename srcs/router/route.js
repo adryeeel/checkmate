@@ -19,8 +19,4 @@ router.set("/dashboard", () => {
 	console.log("Dashboard");
 });
 
-router.set("/maintenance", () => {
-	console.log("Maintenance");
-});
-
 router.route();
