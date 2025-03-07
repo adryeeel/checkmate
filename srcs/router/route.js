@@ -1,4 +1,4 @@
-import { Router } from "./router/Router";
+import { Router } from "./Router";
 
 const rootElement = document.querySelector("#root");
 const router = new Router(rootElement, "data-spa-anchor");
