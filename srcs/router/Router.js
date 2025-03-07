@@ -44,7 +44,12 @@ export class Router {
     });
   }
 
-  #render(path) {
+  #render(view) {
+    this.#rootElement.innerHTML = view.content;
+    view.callback();
+  }
+
+  #navigate(path) {
     const viewPromise = this.#views.get(path);
 
     if (!viewPromise) {
@@ -52,19 +57,13 @@ export class Router {
       return;
     }
 
-    viewPromise.then((view) => {
-      this.#rootElement.innerHTML = view.content;
-      view.callback();
-    });
-  }
-
-  #navigate(path) {
-    if (window.location.pathname === path) {
-      return;
+    if (window.location.pathname != path) {
+      history.pushState({}, "", path);
     }
 
-    history.pushState({}, "", path);
-    this.#render(path);
+    viewPromise.then((view) => {
+      this.#render(view)
+    });
   }
 
   #handleAnchor() {
@@ -81,20 +80,20 @@ export class Router {
 
   #handleHistory() {
     window.addEventListener("popstate", (event) => {
-      this.#render(window.location.pathname);
+      this.#navigate(window.location.pathname);
     });
   }
 
   #handleInitial() {
     window.addEventListener("DOMContentLoaded", (event) => {
-      this.#render(window.location.pathname);
+      this.#navigate(window.location.pathname);
     });
   }
 
   set(path, callback) {
     const pathname = path.slice(1) || "home";
     const viewname = capitalize(pathname);
-    const viewPromise = import(`../views/${viewname}`).then((module) => ({
+    const viewPromise = import(`../views/${viewname}.js`).then((module) => ({
       callback,
       content: module.default(),
     }));
