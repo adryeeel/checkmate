@@ -14,13 +14,14 @@ export class Router {
   }
 
   #renderIndex() {
-    const viewPromise = this.#views.get("/");
+    const path = "/";
+    const viewPromise = this.#views.get(path);
 
     if (!viewPromise) {
       throw new Error("No index route defined.");
     }
 
-    history.replaceState({}, "", "/");
+    history.replaceState({}, "", path);
 
     viewPromise.then((view) => {
       this.#rootElement.innerHTML = view.content;
@@ -29,14 +30,17 @@ export class Router {
   }
 
   #renderNotFound() {
-    const viewPromise = this.#views.get("/404");
+    const path = "/404"
+    const viewPromise = this.#views.get(path);
 
     if (!viewPromise) {
       this.#renderIndex();
       return;
     }
 
-    history.replaceState({}, "", "/404");
+    if (window.location.pathname != path) {
+      history.pushState({}, "", path);
+    }
 
     viewPromise.then((view) => {
       this.#rootElement.innerHTML = view.content;
