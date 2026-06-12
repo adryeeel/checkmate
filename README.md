@@ -1,2 +1,3 @@
-# checkmate
-Your AI mate for maintenance check ups.
+# Checkmate
+
+Your AI mate to assist and automate your manual check up work.
