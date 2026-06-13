@@ -6,16 +6,23 @@
     "type": "module",
     "scripts": {
         "prepare": "husky",
-        "fmt": "oxfmt fmt"
+        "dev": "turbo run dev",
+        "fmt": "turbo run fmt",
+        "lint": "turbo run lint",
+        "build": "turbo run build"
     },
     "devDependencies": {
+        "@checkmate/oxfmt": "workspace:*",
+        "@checkmate/oxlint": "workspace:*",
         "@commitlint/cli": "^21.0.2",
         "@commitlint/config-conventional": "^21.0.2",
         "@commitlint/types": "^21.0.1",
         "husky": "^9.1.7",
         "lint-staged": "^17.0.7",
         "oxfmt": "^0.54.0",
-        "oxlint": "^1.69.0"
+        "oxlint": "^1.69.0",
+        "oxlint-tsgolint": "^0.23.0",
+        "turbo": "^2.9.18"
     },
     "packageManager": "pnpm@11.6.0"
 }
