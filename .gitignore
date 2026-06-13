@@ -1,2 +1,5 @@
+.turbo
+.next
+next-env.d.ts
 build
 node_modules
