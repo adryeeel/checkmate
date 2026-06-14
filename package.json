@@ -6,10 +6,10 @@
     "type": "module",
     "scripts": {
         "prepare": "husky",
-        "dev": "turbo run dev",
-        "fmt": "turbo run fmt",
-        "lint": "turbo run lint",
-        "build": "turbo run build"
+        "fmt:fix": "oxfmt",
+        "fmt:check": "oxfmt --check",
+        "lint:check": "oxlint",
+        "lint:fix": "oxlint --fix"
     },
     "devDependencies": {
         "@checkmate/oxfmt": "workspace:*",
