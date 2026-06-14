@@ -10,9 +10,6 @@ concurrency:
     cancel-in-progress: true
 
 env:
-    TURBO_SCM_HEAD: HEAD
-    TURBO_SCM_BASE: origin/master
-    TURBO_REMOTE_ONLY: true
     TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
 
@@ -21,7 +18,7 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: Checkout code
+            - name: Set up code
               uses: actions/checkout@v6
               with:
                   fetch-depth: 0
@@ -39,7 +36,7 @@ jobs:
         needs: commitlint
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
+            - name: Set up code
               uses: actions/checkout@v6
 
             - name: Set up environment
@@ -52,7 +49,7 @@ jobs:
         needs: commitlint
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
+            - name: Set up code
               uses: actions/checkout@v6
 
             - name: Set up environment
@@ -67,7 +64,7 @@ jobs:
         timeout-minutes: 5
 
         steps:
-            - name: Checkout code
+            - name: Set up code
               uses: actions/checkout@v6
 
             - name: Set up environment
