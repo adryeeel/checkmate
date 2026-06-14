@@ -1,7 +1,7 @@
 import type { Configuration } from 'lint-staged';
 
 const config: Configuration = {
-    '*.json': ['pnpm oxfmt'],
+    '*.{md,yml,json}': ['pnpm oxfmt'],
     '*.{ts,tsx}': ['pnpm oxlint', 'pnpm oxfmt'],
 };
 
