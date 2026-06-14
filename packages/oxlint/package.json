@@ -1,0 +1,14 @@
+{
+    "name": "@checkmate/oxlint",
+    "version": "0.1.0",
+    "type": "module",
+    "exports": {
+        ".": "./index.ts"
+    },
+    "scripts": {
+        "fmt:fix": "oxfmt",
+        "fmt:check": "oxfmt --check",
+        "lint:check": "oxlint",
+        "lint:fix": "oxlint --fix"
+    }
+}
