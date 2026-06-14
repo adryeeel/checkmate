@@ -2,27 +2,21 @@
 
 <!-- Short description of what this PR does -->
 
-- 
-
----
+- ***
 
 ## Motivation
 
 <!-- Why is this change needed? What problem does it solve? -->
 
-- 
-
----
+- ***
 
 ## Changes
 
 <!-- List the main changes in this PR -->
 
-- 
-- 
-- 
-
----
+-
+-
+- ***
 
 ## Type of change
 
@@ -40,9 +34,9 @@
 
 <!-- Steps for reviewers to verify the change -->
 
-1. 
-2. 
-3. 
+1.
+2.
+3.
 
 ---
 
@@ -59,17 +53,13 @@
 
 If yes:
 
-- 
-
----
+- ***
 
 ## Related issues
 
 <!-- Link issues (e.g. Fixes #123) -->
 
-- 
-
----
+- ***
 
 ## Checklist
 
