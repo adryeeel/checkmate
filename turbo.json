@@ -1,18 +1,41 @@
 {
     "$schema": "https://turborepo.dev/schema.json",
+    "globalDependencies": ["**/.env.*", "pnpm-lock.yaml"],
     "tasks": {
         "dev": {
             "cache": false,
-            "persistent": true
+            "persistent": true,
+            "with": ["api#dev"]
         },
+
         "lint": {
+            "inputs": ["$TURBO_DEFAULT$"],
             "outputs": []
         },
+
+        "lint:fix": {
+            "inputs": ["$TURBO_DEFAULT$"],
+            "outputs": []
+        },
+
         "fmt": {
+            "inputs": ["$TURBO_DEFAULT$"],
             "outputs": []
         },
+
+        "fmt:check": {
+            "inputs": ["$TURBO_DEFAULT$"],
+            "outputs": []
+        },
+
+        "test": {
+            "inputs": ["$TURBO_DEFAULT$"],
+            "outputs": ["coverage/**"]
+        },
+
         "build": {
-            "outputs": ["dist/**", ".next/build/**"]
+            "dependsOn": ["^build"],
+            "outputs": [".next/**", "!**/.next/cache/**"]
         }
     }
 }
