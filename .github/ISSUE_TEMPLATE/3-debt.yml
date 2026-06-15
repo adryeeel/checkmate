@@ -1,4 +1,4 @@
-name: Tech Debt
+name: Technical Debt
 description: Refactor, cleanup, or improve existing code without changing behavior
 title: '[debt]: '
 labels: ['debt', 'triage']
@@ -7,15 +7,6 @@ body:
     - type: markdown
       attributes:
           value: Describe a codebase improvement that preserves current behavior while improving structure, performance, or maintainability.
-
-    - type: input
-      id: jira
-      attributes:
-          label: Jira Reference
-          description: Link or key of the Jira story
-          placeholder: CM-103
-      validations:
-          required: true
 
     - type: textarea
       id: summary
@@ -31,7 +22,7 @@ body:
       attributes:
           label: Current State
           description: How the system works today (pain points, duplication, complexity)
-          placeholder: Authentication logic is duplicated across 5 routes and inconsistent in error handling.
+          placeholder: Authentication logic is duplicated
       validations:
           required: true
 
@@ -40,7 +31,7 @@ body:
       attributes:
           label: Desired State
           description: What the system should look like after improvement
-          placeholder: Single shared auth middleware with consistent error handling and reusable session validation
+          placeholder: Single shared auth middleware
       validations:
           required: true
 
