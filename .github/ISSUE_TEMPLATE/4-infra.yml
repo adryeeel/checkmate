@@ -1,0 +1,82 @@
+name: Infrastructure
+description: Provisioning, security or system reliability issues
+title: '[infra]: '
+labels: ['infra', 'triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: Describe issues regarding provisioning, security or system reliability.
+
+    - type: dropdown
+      id: concern
+      attributes:
+          label: Infrastructure Concern
+          options:
+              - Compute
+              - Networking
+              - Database
+              - Caching
+              - Security
+              - Other
+      validations:
+          required: true
+          multiple: true
+
+    - type: textarea
+      id: summary
+      attributes:
+          label: Summary
+          description: What infrastructure change is required?
+          placeholder:
+      validations:
+          required: true
+
+    - type: textarea
+      id: current_state
+      attributes:
+          label: Current State
+          description: How the infrastructure is currently designed
+          placeholder: |
+              -
+              -
+              -
+      validations:
+          required: true
+
+    - type: textarea
+      id: desired_state
+      attributes:
+          label: Desired State
+          description: Target infrastructure setup
+          placeholder: |
+              -
+              -
+              -
+      validations:
+          required: true
+
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          description: Explicit boundaries of the change
+          value: |
+              Included:
+              - 
+
+              Excluded:
+              -
+      validations:
+          required: true
+
+    - type: dropdown
+      id: risk
+      attributes:
+          label: Risk Level
+          options:
+              - Low (non-production / internal tooling)
+              - Medium (staging / production impact)
+              - High (security breach / downtime risk)
+      validations:
+          required: true
