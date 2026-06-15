@@ -1,7 +1,7 @@
-name: Technical Debt
+name: Refactor
 description: Refactor, cleanup, or improve existing code without changing behavior
-title: '[debt]: '
-labels: ['debt', 'triage']
+title: '[refactor]: '
+labels: ['refactor', 'triage']
 
 body:
     - type: markdown
@@ -53,9 +53,9 @@ body:
       id: success_criteria
       attributes:
           label: Success Criteria
-          description: Conditions that must be true for this debt to be considered done
+          description: Conditions that must be true for this refactor to be considered done
           value: |
-              - []
+              - []  
               - []
               - []
 
