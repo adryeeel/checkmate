@@ -23,11 +23,12 @@
 <!-- Mark what applies -->
 
 - [ ] Bug fix
+- [ ] Feature
+- [ ] Refactor
+- [ ] DevOps / CI
+- [ ] Infrastructure
 - [ ] Documentation
-- [ ] CI (workflows, actions)
-- [ ] Feature (new functionality)
-- [ ] Refactor (no behavior change)
-- [ ] Chore (build, tooling, dependencies)
+- [ ] Chore
 
 ## How to test
 
@@ -58,8 +59,22 @@ If yes:
 
 ## Checklist
 
-- [ ] All CI checks pass
+- [ ] All local checks pass
 - [ ] Self-reviewed my changes
 - [ ] Code follows project style
 - [ ] Added/updated tests if needed
 - [ ] No unrelated changes included
+
+---
+
+## Template selection guidance
+
+This repository includes specialized PR templates for different types of work. If your change is one of the following, please select the matching template from `.github/PULL_REQUEST_TEMPLATE/`:
+
+- `bug.md` for bug fixes
+- `feature.md` for new functionality
+- `refactor.md` for codebase improvements with no behavior change
+- `devops.md` for CI/CD and delivery process changes
+- `infra.md` for infrastructure or environment updates
+
+If you do not select a specialized template, use this default template as the fallback.

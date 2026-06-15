@@ -1,0 +1,104 @@
+name: DevOps
+description: CI/CD, deployment or observability issues
+title: '[devops]: '
+labels: ['devops', 'triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: Describe changes to development, delivery, monitoring or operational processes.
+
+    - type: dropdown
+      id: concern
+      attributes:
+          label: Operational Concern
+          options:
+              - Integration
+              - Delivery
+              - Monitoring
+              - Automation
+              - Other
+      validations:
+          required: true
+          multiple: true
+
+    - type: textarea
+      id: goal
+      attributes:
+          label: Goal
+          description: What process or operational capability should exist?
+          placeholder: Automatically validate pull requests before merge
+      validations:
+          required: true
+
+    - type: textarea
+      id: current_process
+      attributes:
+          label: Current Process
+          description: How does the process work today?
+          placeholder: |
+              - Tests are run manually
+              - Linting is performed locally
+              - Pull requests can be merged without validation
+      validations:
+          required: true
+
+    - type: textarea
+      id: desired_process
+      attributes:
+          label: Desired Process
+          description: How should the process work after completion?
+          placeholder: |
+              - Pull requests trigger validation automatically
+              - Failed checks block merging
+              - Results can be checked
+      validations:
+          required: true
+
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          description: Explicit boundaries of the change
+          value: |
+              Included:
+              - 
+
+              Excluded:
+              -
+      validations:
+          required: true
+
+    - type: textarea
+      id: success_criteria
+      attributes:
+          label: Success Criteria
+          description: Conditions that must be true for the operational to be considered improved
+          value: |
+              - []
+              - []
+              - []
+
+    - type: dropdown
+      id: environment
+      attributes:
+          label: Environment
+          options:
+              - Development
+              - Staging
+              - Production
+              - CI/CD
+      validations:
+          required: true
+          multiple: true
+
+    - type: dropdown
+      id: risk
+      attributes:
+          label: Risk Level
+          options:
+              - Low (non-production / internal tooling)
+              - Medium (staging / production impact)
+              - High (security breach / downtime risk)
+      validations:
+          required: true

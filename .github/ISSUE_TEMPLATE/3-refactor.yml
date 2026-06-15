@@ -1,0 +1,72 @@
+name: Refactor
+description: Refactor, cleanup, or improve existing code without changing behavior
+title: '[refactor]: '
+labels: ['refactor', 'triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: Describe a codebase improvement that preserves current behavior while improving structure, performance, or maintainability.
+
+    - type: textarea
+      id: summary
+      attributes:
+          label: Summary
+          description: What area of the system needs improvement?
+          placeholder: Refactor authentication middleware duplication
+      validations:
+          required: true
+
+    - type: textarea
+      id: current_state
+      attributes:
+          label: Current State
+          description: How the system works today (pain points, duplication, complexity)
+          placeholder: Authentication logic is duplicated
+      validations:
+          required: true
+
+    - type: textarea
+      id: desired_state
+      attributes:
+          label: Desired State
+          description: What the system should look like after improvement
+          placeholder: Single shared auth middleware
+      validations:
+          required: true
+
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          description: Explicit boundaries of the refactor
+          value: |
+              Included:
+              - 
+
+              Excluded:
+              -
+      validations:
+          required: true
+
+    - type: textarea
+      id: success_criteria
+      attributes:
+          label: Success Criteria
+          description: Conditions that must be true for this refactor to be considered done
+          value: |
+              - []  
+              - []
+              - []
+
+    - type: dropdown
+      id: risk
+      attributes:
+          label: Risk Level
+          description: Potential impact of change
+          options:
+              - Low (internal refactor, no behavior change)
+              - Medium (touches core modules)
+              - High (critical path / authentication / data layer)
+      validations:
+          required: true

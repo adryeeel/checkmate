@@ -1,0 +1,64 @@
+name: Feature Request
+description: Suggestion of a feature implementation
+title: '[feat]: '
+labels: ['feature', 'triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: Describe the feature with implementation and desired behavior
+
+    - type: textarea
+      id: goal
+      attributes:
+          label: Goal
+          description: What must be achieved in implementation terms
+          placeholder: Implement GitHub OAuth login flow
+      validations:
+          required: true
+
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          description: Explicitly what is included and excluded
+          value: |
+              Included:
+              -
+
+              Excluded:
+              -
+      validations:
+          required: true
+
+    - type: textarea
+      id: success_criteria
+      attributes:
+          label: Success Criteria
+          description: Conditions that must be true for the feature to be considered complete
+          value: |
+              - []
+              - []
+              - []
+
+    - type: input
+      id: jira
+      attributes:
+          label: Jira Reference
+          description: Link of the Jira story
+          placeholder: CM-102
+      validations:
+          required: true
+
+    - type: input
+      id: branch
+      attributes:
+          label: Branch Name
+          description: Suggested branch name for pull request
+          placeholder: feat/github-oauth-login
+
+    - type: textarea
+      id: notes
+      attributes:
+          label: Notes
+          description: Optional context for edge cases or warnings
