@@ -1,28 +1,33 @@
-name: DevOps / Infrastructure
-description: Infrastructure, CI/CD, deployment, observability, or system configuration change
-title: '[DevOps]: '
+name: DevOps
+description: CI/CD, deployment or observability issues
+title: '[devops]: '
 labels: ['devops', 'triage']
 
 body:
     - type: markdown
       attributes:
-          value: Infrastructure change affecting deployment, runtime, CI/CD, or system reliability.
+          value: Describe changes to development, delivery, monitoring or operational processes.
 
-    - type: input
-      id: jira
+    - type: dropdown
+      id: concern
       attributes:
-          label: Jira Reference
-          description: Link or key of the Jira story
-          placeholder: CM-104
+          label: Operational Concern
+          options:
+              - Integration
+              - Delivery
+              - Monitoring
+              - Automation
+              - Other
       validations:
           required: true
+          multiple: true
 
     - type: textarea
       id: summary
       attributes:
           label: Summary
-          description: What infrastructure or operational change is required?
-          placeholder: Add Redis caching layer to improve API response times
+          description: What operational change is required?
+          placeholder:
       validations:
           required: true
 
@@ -30,11 +35,11 @@ body:
       id: current_state
       attributes:
           label: Current State
-          description: How the system is currently configured or behaving
+          description: How the system is currently behaving
           placeholder: |
-              - No Redis instance configured
-              - API responses fully computed per request
-              - No caching layer exists
+              -
+              -
+              -
       validations:
           required: true
 
@@ -42,11 +47,11 @@ body:
       id: desired_state
       attributes:
           label: Desired State
-          description: Target infrastructure or operational setup
+          description: Target operational setup
           placeholder: |
-              - Redis deployed and accessible
-              - API uses cache for repeated requests
-              - Cache invalidation strategy defined
+              -
+              -
+              -
       validations:
           required: true
 
@@ -69,7 +74,6 @@ body:
       attributes:
           label: Environment
           options:
-              - Local
               - Development
               - Staging
               - Production
@@ -84,7 +88,7 @@ body:
           label: Risk Level
           options:
               - Low (non-production / internal tooling)
-              - Medium (staging / partial production impact)
-              - High (production-critical / downtime risk)
+              - Medium (staging / production impact)
+              - High (security breach / downtime risk)
       validations:
           required: true
