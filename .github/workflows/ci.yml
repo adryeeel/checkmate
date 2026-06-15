@@ -1,0 +1,89 @@
+name: CI
+
+on:
+    pull_request:
+        branches: [master]
+        types: [opened, synchronize]
+
+concurrency:
+    group: ci-${{ github.ref }}
+    cancel-in-progress: true
+
+env:
+    TURBO_TEAM: ${{ vars.TURBO_TEAM }}
+    TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+
+jobs:
+    commitlint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Set up code
+              uses: actions/checkout@v6
+              with:
+                  fetch-depth: 0
+
+            - name: Set up environment
+              uses: ./.github/actions/setup
+
+            - name: Run commitlint
+              run: |
+                  pnpm exec commitlint \
+                  --from=${{ github.event.pull_request.base.sha }} \
+                  --to=${{ github.event.pull_request.head.sha }}
+
+    format:
+        needs: commitlint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Set up code
+              uses: actions/checkout@v6
+
+            - name: Set up environment
+              uses: ./.github/actions/setup
+
+            - name: Run formatter
+              run: pnpm turbo fmt:check --affected
+
+    lint:
+        needs: commitlint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Set up code
+              uses: actions/checkout@v6
+
+            - name: Set up environment
+              uses: ./.github/actions/setup
+
+            - name: Run linter
+              run: pnpm turbo lint:check --affected
+
+    test:
+        needs: commitlint
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+
+        steps:
+            - name: Set up code
+              uses: actions/checkout@v6
+
+            - name: Set up environment
+              uses: ./.github/actions/setup
+
+            - name: Run tests
+              run: pnpm turbo test --affected
+
+    build:
+        needs: [lint, test]
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v6
+
+            - name: Set up environment
+              uses: ./.github/actions/setup
+
+            - name: Build affected packages
+              run: pnpm turbo build --affected

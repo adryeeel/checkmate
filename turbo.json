@@ -8,7 +8,7 @@
             "with": ["api#dev"]
         },
 
-        "lint": {
+        "lint:check": {
             "inputs": ["$TURBO_DEFAULT$"],
             "outputs": []
         },
@@ -18,7 +18,7 @@
             "outputs": []
         },
 
-        "fmt": {
+        "fmt:fix": {
             "inputs": ["$TURBO_DEFAULT$"],
             "outputs": []
         },
