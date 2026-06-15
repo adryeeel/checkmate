@@ -23,35 +23,35 @@ body:
           multiple: true
 
     - type: textarea
-      id: summary
+      id: goal
       attributes:
-          label: Summary
-          description: What operational change is required?
-          placeholder:
+          label: Goal
+          description: What process or operational capability should exist?
+          placeholder: Automatically validate pull requests before merge
       validations:
           required: true
 
     - type: textarea
-      id: current_state
+      id: current_process
       attributes:
-          label: Current State
-          description: How the system is currently behaving
+          label: Current Process
+          description: How does the process work today?
           placeholder: |
-              -
-              -
-              -
+              - Tests are run manually
+              - Linting is performed locally
+              - Pull requests can be merged without validation
       validations:
           required: true
 
     - type: textarea
-      id: desired_state
+      id: desired_process
       attributes:
-          label: Desired State
-          description: Target operational setup
+          label: Desired Process
+          description: How should the process work after completion?
           placeholder: |
-              -
-              -
-              -
+              - Pull requests trigger validation automatically
+              - Failed checks block merging
+              - Results can be checked
       validations:
           required: true
 
