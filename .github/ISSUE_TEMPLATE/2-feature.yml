@@ -1,5 +1,5 @@
 name: Feature Task
-description: Implementation task derived from Jira story
+description: Implementation task
 title: '[feat]: '
 labels: ['feature', 'triage']
 
@@ -9,15 +9,6 @@ body:
           value: |
               Implementation task for AI agents.
               Jira contains full context. This issue defines execution scope only.
-
-    - type: input
-      id: jira
-      attributes:
-          label: Jira Reference
-          description: Link or key of the Jira story
-          placeholder: CM-102
-      validations:
-          required: true
 
     - type: textarea
       id: goal
@@ -54,19 +45,20 @@ body:
       validations:
           required: true
 
-    - type: textarea
-      id: dependencies
+    - type: input
+      id: jira
       attributes:
-          label: Dependencies
-          description: Other issues, services, or blockers
-          placeholder: |
-              - Depends on #12 database migration
-              - Requires API endpoint /auth/github
+          label: Jira Reference
+          description: Link of the Jira story
+          placeholder: CM-102
+      validations:
+          required: true
 
     - type: input
       id: branch
       attributes:
-          label: Suggested Branch Name
+          label: Branch Name
+          description: Suggested branch name for pull request
           placeholder: feat/github-oauth-login
 
     - type: textarea

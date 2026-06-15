@@ -1,5 +1,5 @@
 name: Bug Report
-description: Reproducible defect report for contributors and AI agents
+description: Reproducible defect report
 title: '[bug]: '
 labels: ['bug', 'triage']
 
@@ -7,15 +7,6 @@ body:
     - type: markdown
       attributes:
           value: Provide enough information to reproduce and validate the issue.
-
-    - type: input
-      id: jira
-      attributes:
-          label: Jira Reference
-          description: Link or key of the Jira story
-          placeholder: CM-101
-      validations:
-          required: true
 
     - type: textarea
       id: summary
@@ -56,17 +47,12 @@ body:
       validations:
           required: true
 
-    - type: textarea
-      id: environment
+    - type: input
+      id: jira
       attributes:
-          label: Environment
-          description: Runtime context where issue occurs
-          value: |
-              - OS:
-              - Browser:
-              - Device:
-              - App version:
-              - Environment (dev/staging/prod):
+          label: Jira Reference
+          description: Link or key of the Jira story
+          placeholder: CM-101
       validations:
           required: true
 
