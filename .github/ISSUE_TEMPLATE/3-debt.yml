@@ -1,0 +1,71 @@
+name: Tech Debt
+description: Refactor, cleanup, or improve existing code without changing behavior
+title: '[debt]: '
+labels: ['debt', 'triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: Describe a codebase improvement that preserves current behavior while improving structure, performance, or maintainability.
+
+    - type: input
+      id: jira
+      attributes:
+          label: Jira Reference
+          description: Link or key of the Jira story
+          placeholder: CM-103
+      validations:
+          required: true
+
+    - type: textarea
+      id: summary
+      attributes:
+          label: Summary
+          description: What area of the system needs improvement?
+          placeholder: Refactor authentication middleware duplication
+      validations:
+          required: true
+
+    - type: textarea
+      id: current_state
+      attributes:
+          label: Current State
+          description: How the system works today (pain points, duplication, complexity)
+          placeholder: Authentication logic is duplicated across 5 routes and inconsistent in error handling.
+      validations:
+          required: true
+
+    - type: textarea
+      id: desired_state
+      attributes:
+          label: Desired State
+          description: What the system should look like after improvement
+          placeholder: Single shared auth middleware with consistent error handling and reusable session validation
+      validations:
+          required: true
+
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          description: Explicit boundaries of the refactor
+          value: |
+              Included:
+              - 
+
+              Excluded:
+              -
+      validations:
+          required: true
+
+    - type: dropdown
+      id: risk
+      attributes:
+          label: Risk Level
+          description: Potential impact of change
+          options:
+              - Low (internal refactor, no behavior change)
+              - Medium (touches core modules)
+              - High (critical path / authentication / data layer)
+      validations:
+          required: true

@@ -1,0 +1,90 @@
+name: DevOps / Infrastructure
+description: Infrastructure, CI/CD, deployment, observability, or system configuration change
+title: '[DevOps]: '
+labels: ['devops', 'triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: Infrastructure change affecting deployment, runtime, CI/CD, or system reliability.
+
+    - type: input
+      id: jira
+      attributes:
+          label: Jira Reference
+          description: Link or key of the Jira story
+          placeholder: CM-104
+      validations:
+          required: true
+
+    - type: textarea
+      id: summary
+      attributes:
+          label: Summary
+          description: What infrastructure or operational change is required?
+          placeholder: Add Redis caching layer to improve API response times
+      validations:
+          required: true
+
+    - type: textarea
+      id: current_state
+      attributes:
+          label: Current State
+          description: How the system is currently configured or behaving
+          placeholder: |
+              - No Redis instance configured
+              - API responses fully computed per request
+              - No caching layer exists
+      validations:
+          required: true
+
+    - type: textarea
+      id: desired_state
+      attributes:
+          label: Desired State
+          description: Target infrastructure or operational setup
+          placeholder: |
+              - Redis deployed and accessible
+              - API uses cache for repeated requests
+              - Cache invalidation strategy defined
+      validations:
+          required: true
+
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          description: Explicit boundaries of the change
+          value: |
+              Included:
+              - 
+
+              Excluded:
+              -
+      validations:
+          required: true
+
+    - type: dropdown
+      id: environment
+      attributes:
+          label: Environment
+          options:
+              - Local
+              - Development
+              - Staging
+              - Production
+              - CI/CD
+      validations:
+          required: true
+          multiple: true
+
+    - type: dropdown
+      id: risk
+      attributes:
+          label: Risk Level
+          options:
+              - Low (non-production / internal tooling)
+              - Medium (staging / partial production impact)
+              - High (production-critical / downtime risk)
+      validations:
+          required: true

@@ -1,0 +1,76 @@
+name: Feature Task
+description: Implementation task derived from Jira story
+title: '[feat]: '
+labels: ['feature', 'triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Implementation task for AI agents.
+              Jira contains full context. This issue defines execution scope only.
+
+    - type: input
+      id: jira
+      attributes:
+          label: Jira Reference
+          description: Link or key of the Jira story
+          placeholder: CM-102
+      validations:
+          required: true
+
+    - type: textarea
+      id: goal
+      attributes:
+          label: Goal
+          description: What must be achieved in implementation terms (not business narrative)
+          placeholder: Implement GitHub OAuth login flow
+      validations:
+          required: true
+
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          description: Explicitly what is included and excluded
+          value: |
+              Included:
+              -
+
+              Excluded:
+              -
+      validations:
+          required: true
+
+    - type: textarea
+      id: acceptance_criteria
+      attributes:
+          label: Acceptance Criteria
+          description: Must be verifiable conditions for completion
+          value: |
+              - [ ]
+              - [ ]
+              - [ ]
+      validations:
+          required: true
+
+    - type: textarea
+      id: dependencies
+      attributes:
+          label: Dependencies
+          description: Other issues, services, or blockers
+          placeholder: |
+              - Depends on #12 database migration
+              - Requires API endpoint /auth/github
+
+    - type: input
+      id: branch
+      attributes:
+          label: Suggested Branch Name
+          placeholder: feat/github-oauth-login
+
+    - type: textarea
+      id: notes
+      attributes:
+          label: Notes
+          description: Optional context for edge cases or warnings
