@@ -58,7 +58,7 @@ If yes:
 
 ## Checklist
 
-- [ ] All CI checks pass
+- [ ] All local checks pass
 - [ ] Self-reviewed my changes
 - [ ] Code follows project style
 - [ ] Added/updated tests if needed
