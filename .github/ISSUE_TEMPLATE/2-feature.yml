@@ -1,20 +1,18 @@
-name: Feature Task
-description: Implementation task
+name: Feature Request
+description: Suggestion of a feature implementation
 title: '[feat]: '
 labels: ['feature', 'triage']
 
 body:
     - type: markdown
       attributes:
-          value: |
-              Implementation task for AI agents.
-              Jira contains full context. This issue defines execution scope only.
+          value: Describe the feature with implementation and desired behavior
 
     - type: textarea
       id: goal
       attributes:
           label: Goal
-          description: What must be achieved in implementation terms (not business narrative)
+          description: What must be achieved in implementation terms
           placeholder: Implement GitHub OAuth login flow
       validations:
           required: true
@@ -34,16 +32,14 @@ body:
           required: true
 
     - type: textarea
-      id: acceptance_criteria
+      id: success_criteria
       attributes:
-          label: Acceptance Criteria
-          description: Must be verifiable conditions for completion
+          label: Success Criteria
+          description: Conditions that must be true for the feature to be considered complete
           value: |
-              - [ ]
-              - [ ]
-              - [ ]
-      validations:
-          required: true
+              - []
+              - []
+              - []
 
     - type: input
       id: jira

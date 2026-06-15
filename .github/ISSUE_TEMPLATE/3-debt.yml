@@ -49,6 +49,16 @@ body:
       validations:
           required: true
 
+    - type: textarea
+      id: success_criteria
+      attributes:
+          label: Success Criteria
+          description: Conditions that must be true for this debt to be considered done
+          value: |
+              - []
+              - []
+              - []
+
     - type: dropdown
       id: risk
       attributes:

@@ -69,6 +69,16 @@ body:
       validations:
           required: true
 
+    - type: textarea
+      id: success_criteria
+      attributes:
+          label: Success Criteria
+          description: Conditions that must be true for the operational to be considered improved
+          value: |
+              - []
+              - []
+              - []
+
     - type: dropdown
       id: environment
       attributes:

@@ -47,6 +47,16 @@ body:
       validations:
           required: true
 
+    - type: textarea
+      id: success_criteria
+      attributes:
+          label: Success Criteria
+          description: Conditions that must be true for this bug to be considered fixed
+          value: |
+              - []
+              - []
+              - []
+
     - type: input
       id: jira
       attributes:
