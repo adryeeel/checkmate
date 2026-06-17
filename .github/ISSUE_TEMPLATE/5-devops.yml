@@ -87,7 +87,6 @@ body:
               - Development
               - Staging
               - Production
-              - CI/CD
       validations:
           required: true
           multiple: true
