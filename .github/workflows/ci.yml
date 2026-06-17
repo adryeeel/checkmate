@@ -15,8 +15,8 @@ env:
 
 jobs:
     commitlint:
+        if: ${{ github.event.pull_request.draft == false }}
         runs-on: ubuntu-latest
-
         steps:
             - name: Set up code
               uses: actions/checkout@v6
