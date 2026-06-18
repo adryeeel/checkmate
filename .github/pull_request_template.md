@@ -73,6 +73,7 @@ This repository includes specialized PR templates for different types of work. I
 
 - `bug.md` for bug fixes
 - `feature.md` for new functionality
+- `docs.md` for documentation updates
 - `refactor.md` for codebase improvements with no behavior change
 - `devops.md` for CI/CD and delivery process changes
 - `infra.md` for infrastructure or environment updates
