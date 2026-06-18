@@ -1,18 +1,8 @@
-## Codebase Enhancement Summary
-
 ## Summary
 
 - What is being refactored?
-- What problem does this refactor solve?
-- What behavior remains unchanged?
-
-## Current state
-
--
-
-## Desired state
-
--
+- Problem it solves?
+- Behavior remains unchanged?
 
 ## Scope
 
@@ -24,30 +14,36 @@ Excluded:
 
 -
 
-## Success criteria
+## Changes
 
-- [ ] Behavior preserved
-- [ ] Code quality improved
-- [ ] Affected areas simplified
+- Key technical changes
+- Affected areas
+- Behavioral impact assessment
+
+## Testing
+
+- [ ] Behavior preserved (regression checks)
+- [ ] Tests updated if needed
+- [ ] Code quality metrics reviewed
+
+## Risk assessment
+
+- Risk level: low / medium / high
+- Potential impact and isolation scope
 
 ## Verification
-
-- [ ] Regression checks performed
-- [ ] Manual verification steps documented
-- [ ] Tests updated if needed
-
-Manual verification:
 
 1.
 2.
 3.
 
-## Risk assessment
-
-- Risk level: low / medium / high
-- Potential impact:
-- Is the change isolated or broad?
-
 ## Related issues
 
+- Closes #
 - References #
+
+## Checklist
+
+- [ ] Behavior verified
+- [ ] Tests added or updated
+- [ ] No unrelated changes included

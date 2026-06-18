@@ -1,48 +1,40 @@
-## Bug Fix Summary
+## Summary
 
 - What bug was fixed?
-- What behavior was wrong before?
+- Root cause?
 - What is now fixed?
 
-## Root cause
+## Changes
 
-- Why did the bug happen?
-- What conditions triggered it?
-
-## Fix details
-
-- What changes were made?
 - What files or modules were updated?
-- Any important implementation notes?
+- Implementation notes
 
-## Test plan
+## Testing
 
 - [ ] Regression test added/updated
 - [ ] Unit tests cover the bug scenario
 - [ ] Integration/e2e tests run if applicable
-- [ ] Manual verification steps
 
-Manual verification:
+## Risk assessment
+
+- Risk level: low / medium / high
+- User impact and rollback plan
+
+## Verification
 
 1.
 2.
 3.
 
-## Risk and rollback
-
-- Risk level: low / medium / high
-- Is there any potential user impact?
-- Rollback plan if the fix causes problems:
-
 ## Related issues
 
-- Fixes #
-- Related #
+- Closes #
+- References #
 
 ## Checklist
 
-- [ ] I reproduced the bug locally
-- [ ] I confirmed the fix addresses the bug
-- [ ] I updated tests or added new tests
-- [ ] I updated documentation if needed
+- [ ] Bug reproduced locally
+- [ ] Fix verified
+- [ ] Tests added or updated
+- [ ] Documentation updated if needed
 - [ ] No unrelated changes included
