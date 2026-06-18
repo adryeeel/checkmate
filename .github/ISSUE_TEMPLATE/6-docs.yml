@@ -1,0 +1,86 @@
+name: Documentation
+description: Create, update, or improve documentation
+title: '[docs]: '
+labels: ['docs', 'triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: Help us improve our documentation by creating new docs, updating existing ones, or fixing issues.
+
+    - type: textarea
+      id: summary
+      attributes:
+          label: Summary
+          description: What documentation needs to be created or improved?
+          placeholder: Add setup guide for local development environment
+      validations:
+          required: true
+
+    - type: dropdown
+      id: doc_type
+      attributes:
+          label: Documentation Type
+          description: What type of documentation is this?
+          options:
+              - New Documentation
+              - Update Existing
+              - Fix/Clarification
+              - Restructure
+      validations:
+          required: true
+
+    - type: textarea
+      id: current_state
+      attributes:
+          label: Current State
+          description: What currently exists or what's missing?
+          placeholder: No setup guide exists, only scattered README notes
+      validations:
+          required: false
+
+    - type: textarea
+      id: desired_state
+      attributes:
+          label: Desired State
+          description: What should the documentation include or look like?
+          value: |
+              - 
+              - 
+              -
+      validations:
+          required: true
+
+    - type: textarea
+      id: scope
+      attributes:
+          label: Scope
+          description: Which files or sections are affected?
+          value: |
+              Files/Sections:
+              - 
+
+              Related Files:
+              -
+      validations:
+          required: false
+
+    - type: textarea
+      id: technical_details
+      attributes:
+          label: Technical Details
+          description: Any technical information or code references needed for the documentation
+          placeholder: Links to code, API endpoints, configuration files, etc.
+      validations:
+          required: false
+
+    - type: checkboxes
+      id: priorities
+      attributes:
+          label: Priorities
+          description: What aspects of this documentation are most important?
+          options:
+              - label: Clarity and accuracy
+              - label: Completeness
+              - label: Code examples
+              - label: Visual diagrams
