@@ -1,18 +1,16 @@
-## Feature Implementation Summary
-
 ## Summary
 
 - What is the new feature?
 - What user problem does it solve?
-- What is the expected behavior?
+- Expected behavior?
 
 ## Scope
 
 - What areas are affected?
-- What components or services changed?
-- Does this include API or schema changes?
+- Components or services changed?
+- API or schema changes?
 
-## Implementation details
+## Changes
 
 - Key technical changes
 - New architecture, modules, or flows
@@ -23,29 +21,29 @@
 
 - [ ] Unit tests added/updated
 - [ ] Integration tests added/updated
-- [ ] Manual QA performed
 - [ ] Edge cases covered
+- [ ] Manual QA performed
 
-Manual verification:
+## Rollout considerations
+
+- Production ready?
+- Phased rollout or feature flag required?
+- Migration steps needed?
+
+## Verification
 
 1.
 2.
 3.
 
-## Rollout plan
-
-- Is this ready for production deployment?
-- Any phased rollout or feature flag required?
-- Are there migration steps?
-
 ## Related issues
 
-- Resolves #
-- Related #
+- Closes #
+- References #
 
 ## Checklist
 
 - [ ] Feature behavior verified
 - [ ] Tests updated or added
-- [ ] Docs updated if applicable
+- [ ] Documentation updated if applicable
 - [ ] No unrelated changes included

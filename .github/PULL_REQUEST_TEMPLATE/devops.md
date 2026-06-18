@@ -1,10 +1,8 @@
-# DevOps Update Summary
-
 ## Summary
 
 - What DevOps change is included?
 - Why is it needed?
-- What outcome does it enable?
+- Outcome enabled?
 
 ## Change type
 
@@ -18,60 +16,48 @@
 
 ## Scope
 
-- Environments affected:
-    - [ ] dev
-    - [ ] staging
-    - [ ] production
-    - [ ] other:
+Environments affected:
 
-- Services affected:
-    -
+- [ ] dev
+- [ ] staging
+- [ ] production
+- [ ] other:
 
-- Related workflows or jobs:
-    -
+Services and workflows affected:
 
-## Change details
+-
+-
+
+## Changes
 
 - Pipeline or workflow changes
 - Deployment config or resource updates
 - Monitoring, alerting, or logging changes
 - Security and access control changes
 
-## Risk and rollback
-
-- Potential impact:
-- Expected downtime:
-    - [ ] none
-    - [ ] low
-    - [ ] medium
-    - [ ] high
-
-- Rollback plan:
-
-## Validation
+## Testing & Validation
 
 - [ ] CI/CD checks passed
 - [ ] Changes applied to non-production environment
-- [ ] Manual verification performed
-- [ ] Runbook or checklist updated if needed
+- [ ] Alerts and dashboards updated
+- [ ] Logs or metrics reviewed
 
-Manual verification:
+## Risk assessment
 
-1.
-2.
-3.
+- Expected downtime: none / low / medium / high
+- Potential impact and rollback plan
 
-## Observability
-
-- Alerts added or updated
-- Dashboards updated
-- Logs or metrics reviewed
-
-## Security considerations
+## Security
 
 - IAM / permissions reviewed
 - Secrets handled securely
 - No sensitive data in configs
+
+## Verification
+
+1.
+2.
+3.
 
 ## Related issues
 
@@ -80,6 +66,6 @@ Manual verification:
 
 ## Checklist
 
-- [ ] I verified the change in a safe environment
-- [ ] I updated related documentation or runbooks
+- [ ] Change verified in safe environment
+- [ ] Documentation or runbooks updated if needed
 - [ ] No unrelated changes included

@@ -1,54 +1,48 @@
-## Infrastructure Update Summary
-
 ## Summary
 
 - What infrastructure change is included?
-- What systems, environments, or services are affected?
+- Systems, environments, or services affected?
 
-## Change details
+## Scope
 
-- Infrastructure as code files changed
-- Service, network, or provisioning updates
-- Security, IAM, or permissions changes
-- Any configuration or resource updates
-
-## Environments impacted
+Environments impacted:
 
 - [ ] Development
 - [ ] Staging
 - [ ] Production
 - [ ] Other:
 
-## Risk and rollback
+## Changes
 
-- Potential impact to availability or deployment
-- Downtime expected: none / low / medium / high
-- Rollback plan and recovery steps
+- Infrastructure as code files changed
+- Service, network, or provisioning updates
+- Configuration or resource updates
+- IAM or permissions changes
 
-## Validation
+## Testing & Validation
 
 - [ ] IaC plan reviewed
 - [ ] Changes applied in non-production environment
 - [ ] CI/CD checks passed
-- [ ] Manual verification performed
+- [ ] Dashboards/alerts updated
 
-Manual verification:
+## Risk assessment
+
+- Downtime expected: none / low / medium / high
+- Potential impact to availability
+- Rollback plan and recovery steps
+
+## Security
+
+- IAM and permission changes reviewed
+- Secrets managed securely
+- No sensitive data in configuration
+
+## Verification
 
 1.
 2.
 3.
-
-## Observability and monitoring
-
-- Updated dashboards or alerts?
-- Logs reviewed?
-- Metrics impacted?
-
-## Security considerations
-
-- IAM and permission changes reviewed
-- Secrets managed securely
-- No sensitive data added to config
 
 ## Related issues
 
