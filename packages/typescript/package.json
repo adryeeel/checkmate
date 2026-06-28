@@ -1,0 +1,9 @@
+{
+    "name": "@checkmate/typescript",
+    "type": "module",
+    "exports": {
+        "./base": "./tsconfig.base.json",
+        "./next": "./tsconfig.next.json",
+        "./nest": "./tsconfig.nest.json"
+    }
+}
