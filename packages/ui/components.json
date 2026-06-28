@@ -1,0 +1,25 @@
+{
+    "$schema": "https://ui.shadcn.com/schema.json",
+    "style": "base-luma",
+    "rsc": true,
+    "tsx": true,
+    "tailwind": {
+        "prefix": "",
+        "config": "",
+        "baseColor": "mist",
+        "cssVariables": true,
+        "css": "src/style/global.css"
+    },
+    "iconLibrary": "lucide",
+    "rtl": false,
+    "aliases": {
+        "lib": "@checkmate/ui/lib",
+        "hooks": "@checkmate/ui/hooks",
+        "utils": "@checkmate/ui/lib/utils",
+        "ui": "@checkmate/ui/components/shadcn",
+        "components": "@checkmate/ui/components"
+    },
+    "menuColor": "default",
+    "menuAccent": "subtle",
+    "registries": {}
+}
