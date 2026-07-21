@@ -1,0 +1,11 @@
+{
+    "extends": "@checkmate/typescript/next",
+    "compilerOptions": {
+        "paths": {
+            "@/*": ["./src/*"],
+            "@test/*": ["./test/*"]
+        }
+    },
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+    "exclude": ["node_modules", ".next"]
+}

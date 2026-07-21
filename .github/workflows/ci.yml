@@ -10,8 +10,10 @@ concurrency:
     cancel-in-progress: true
 
 env:
+    TURBO_TELEMETRY_DISABLED: 1
     TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+    TURBO_SCM_BASE: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
 
 jobs:
     commitlint:
@@ -19,7 +21,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Set up code
-              uses: actions/checkout@v6
+              uses: actions/checkout@v7
               with:
                   fetch-depth: 0
 
@@ -37,7 +39,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Set up code
-              uses: actions/checkout@v6
+              uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
 
             - name: Set up environment
               uses: ./.github/actions/setup
@@ -50,7 +54,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Set up code
-              uses: actions/checkout@v6
+              uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
 
             - name: Set up environment
               uses: ./.github/actions/setup
@@ -65,10 +71,15 @@ jobs:
 
         steps:
             - name: Set up code
-              uses: actions/checkout@v6
+              uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
 
             - name: Set up environment
               uses: ./.github/actions/setup
+
+            - name: Set up playwright
+              run: pnpm --filter web exec playwright install chromium --with-deps
 
             - name: Run tests
               run: pnpm turbo test --affected
@@ -80,7 +91,9 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v6
+              uses: actions/checkout@v7
+              with:
+                  fetch-depth: 0
 
             - name: Set up environment
               uses: ./.github/actions/setup

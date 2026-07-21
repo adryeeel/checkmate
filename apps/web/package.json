@@ -1,0 +1,35 @@
+{
+    "name": "@checkmate/web",
+    "version": "0.1.0",
+    "type": "module",
+    "scripts": {
+        "dev": "next dev",
+        "test": "vitest run",
+        "build": "next build",
+        "start": "next start",
+        "fmt:fix": "oxfmt",
+        "fmt:check": "oxfmt --check",
+        "lint:check": "oxlint",
+        "lint:fix": "oxlint --fix"
+    },
+    "dependencies": {
+        "next": "^16.2.10",
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7"
+    },
+    "devDependencies": {
+        "@checkmate/oxfmt": "workspace:*",
+        "@checkmate/oxlint": "workspace:*",
+        "@checkmate/typescript": "workspace:*",
+        "@checkmate/ui": "workspace:*",
+        "@tailwindcss/postcss": "^4.3.3",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "@vitest/browser-playwright": "^4.1.10",
+        "babel-plugin-react-compiler": "^1.0.0",
+        "playwright": "^1.61.1",
+        "typescript": "^6.0.3",
+        "vitest": "^4.1.10",
+        "vitest-browser-react": "^2.2.0"
+    }
+}
