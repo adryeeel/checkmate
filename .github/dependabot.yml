@@ -8,8 +8,8 @@ updates:
           interval: weekly
 
       groups:
-          actions-deps:
-              pattern:
+          github-actions:
+              patterns:
                   - '*'
 
     - package-ecosystem: npm
