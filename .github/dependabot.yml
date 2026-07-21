@@ -9,7 +9,8 @@ updates:
 
       groups:
           actions-deps:
-              pattern: '*'
+              pattern:
+                  - '*'
 
     - package-ecosystem: npm
       directory: /
