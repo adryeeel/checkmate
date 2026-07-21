@@ -2,7 +2,7 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "noEmit": true,
-        "jsx": "preserve",
+        "jsx": "react-jsx",
         "moduleResolution": "bundler",
         "plugins": [{ "name": "next" }],
         "lib": ["dom", "dom.iterable", "esnext"]

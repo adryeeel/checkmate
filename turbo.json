@@ -30,7 +30,7 @@
 
         "test": {
             "inputs": ["$TURBO_DEFAULT$"],
-            "outputs": ["coverage/**"]
+            "outputs": []
         },
 
         "build": {

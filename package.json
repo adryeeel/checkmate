@@ -14,15 +14,15 @@
     "devDependencies": {
         "@checkmate/oxfmt": "workspace:*",
         "@checkmate/oxlint": "workspace:*",
-        "@commitlint/cli": "^21.0.2",
-        "@commitlint/config-conventional": "^21.0.2",
-        "@commitlint/types": "^21.0.1",
+        "@commitlint/cli": "^21.2.1",
+        "@commitlint/config-conventional": "^21.2.0",
+        "@commitlint/types": "^21.2.0",
         "husky": "^9.1.7",
-        "lint-staged": "^17.0.7",
-        "oxfmt": "^0.54.0",
-        "oxlint": "^1.69.0",
-        "oxlint-tsgolint": "^0.23.0",
-        "turbo": "^2.9.18"
+        "lint-staged": "^17.1.0",
+        "oxfmt": "^0.59.0",
+        "oxlint": "^1.74.0",
+        "oxlint-tsgolint": "^0.25.0",
+        "turbo": "^2.10.5"
     },
-    "packageManager": "pnpm@11.6.0"
+    "packageManager": "pnpm@11.15.0"
 }

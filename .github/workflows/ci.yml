@@ -70,6 +70,9 @@ jobs:
             - name: Set up environment
               uses: ./.github/actions/setup
 
+            - name: Set up playwright
+              run: pnpm --filter web exec playwright install --with-deps
+
             - name: Run tests
               run: pnpm turbo test --affected
 

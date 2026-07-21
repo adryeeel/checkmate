@@ -1,5 +1,5 @@
 name: Setup
-description: Set up the environment for actions workflow
+description: Set up the environment for CI workflow
 
 runs:
     using: 'composite'
