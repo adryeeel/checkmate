@@ -7,7 +7,18 @@ const config: UserConfig = {
         'scope-enum': [
             2,
             'always',
-            ['web', 'api', 'deps', 'arch', 'infra', 'tools', 'actions', 'product', 'templates'],
+            [
+                'web',
+                'api',
+                'deps',
+                'arch',
+                'infra',
+                'tools',
+                'actions',
+                'product',
+                'deps-dev',
+                'templates',
+            ],
         ],
     },
 };
