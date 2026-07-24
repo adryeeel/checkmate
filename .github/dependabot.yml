@@ -24,3 +24,8 @@ updates:
 
           development:
               dependency-type: development
+
+      ignore:
+          - dependency-name: typescript
+            versions:
+                - 7.x
