@@ -1,26 +1,25 @@
 # Architecture Documentation
 
-This directory contains architecture guidance and decision records for the Checkmate project.
+This directory contains the architecture guidance for the Checkmate project.
 
-## Purpose
+## Start here
 
-- Capture the high-level architecture direction for the repository.
-- Document important technology decisions and trade-offs.
-- Provide a reference for future contributors and maintainers.
+Read these documents in order:
 
-## Structure
+1. [Current architecture state](./current-state.md) — what the repository looks like today
+2. [Target architecture](./target-state.md) — the intended architecture for the next implementation phase
+3. [Architecture decisions](./decisions.md) — the key decisions that shape the system
+4. [Architecture decision records](./decision/) — the detailed ADRs for major platform choices
 
-- `decision/` contains Architecture Decision Records (ADRs) for major platform choices.
-- `README.md` describes the architecture documentation approach and links to current decisions.
+## Documentation map
 
-## Current Decisions
-
-- `ADR 001: Choose Repository Structure` — monorepo layout with `apps/` and `packages/`.
-- `ADR 002: Choose Front-end Framework` — `Next.js + React + TypeScript` for `apps/web`.
-- `ADR 003: Choose Back-end Framework` — `NestJS + TypeScript` for `apps/api`.
+- [Current architecture state](./current-state.md) explains the present repository structure and current implementation boundaries.
+- [Target architecture](./target-state.md) describes the intended architecture for the first full product implementation.
+- [Architecture decisions](./decisions.md) provides a concise overview of the core choices already made.
+- [Architecture decision records](./decision/) contains the detailed ADRs for the major architecture decisions.
 
 ## How to use this documentation
 
-- Add new ADRs for meaningful architecture decisions.
-- Keep decisions concise and focused on context, drivers, alternatives, and consequences.
-- Use this space to explain why the project adopted a particular path, not just what the path is.
+- Use the current-state document to understand what already exists.
+- Use the target-state document to understand where the system is heading.
+- Use the decision records when you need the reasoning behind a specific technology or structure choice.
