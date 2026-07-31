@@ -18,6 +18,7 @@ updates:
 
       commit-message:
           prefix: build
+          include: scope
 
       groups:
           github-actions:
@@ -46,6 +47,7 @@ updates:
 
       commit-message:
           prefix: build
+          include: scope
 
       groups:
           production:
@@ -76,6 +78,7 @@ updates:
 
       commit-message:
           prefix: build
+          include: scope
 
       pull-request-branch-name:
           prefix: build
