@@ -75,7 +75,7 @@ Three core roles interact with Checkmate:
 - **Manager** — Creates, assigns, approves, and oversees work requests
 - **Employee** — Executes assigned work and reports progress
 
-See [Roles & Users](./roles-and-users.md) for detailed permissions.
+See [`roles-and-users.md`](./roles-and-users.md) for detailed permissions.
 
 ## Audit Log
 

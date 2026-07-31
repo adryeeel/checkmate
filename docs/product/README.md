@@ -1,25 +1,27 @@
 # Product Documentation
 
-This folder contains comprehensive product documentation for Checkmate, a platform that manages structured work execution, team assignment, and automated billing for service-based businesses.
+This folder contains the current product documentation for Checkmate. The documents describe the intended product behavior, scope, and user experience captured in the repository context.
+
+These materials are intentionally written at a product level. They focus on what Checkmate should do for users and how the system should behave, while avoiding implementation detail unless it is clearly supported by the codebase.
 
 ## Quick Navigation
 
 ### Core Understanding
 
-- [**Overview**](./overview.md) — Problem, solution, and platform purpose
-- [**Core Concepts**](./core-concepts.md) — Key entities and definitions
+- [Product overview](./overview.md) — problem, solution, and platform purpose
+- [Core concepts](./core-concepts.md) — key entities and definitions
 
 ### System Design
 
-- [**Roles & Users**](./roles-and-users.md) — User types and permissions
-- [**System Workflows**](./system-workflows.md) — Behavioral patterns and system behavior
-- [**Features**](./features.md) — Core system capabilities
-- [**User Flows**](./user-flows.md) — Step-by-step user interactions
-- [**Business Rules**](./business-rules.md) — Constraints and system behavior
+- [Roles and users](./roles-and-users.md) — user types and permissions
+- [System workflows](./system-workflows.md) — behavioral patterns and system behavior
+- [Features](./features.md) — core system capabilities
+- [User flows](./user-flows.md) — step-by-step user interactions
+- [Business rules](./business-rules.md) — constraints and system behavior
 
 ### Scope & Planning
 
-- [**Scope**](./scope.md) — MVP inclusions and future ideas
+- [Scope](./scope.md) — MVP inclusions and future ideas
 
 ## Document Structure
 
