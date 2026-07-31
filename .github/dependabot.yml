@@ -4,19 +4,48 @@ updates:
     - package-ecosystem: github-actions
       directory: /
 
+      assignees:
+          - adryeeel
+
+      labels:
+          - build
+
       schedule:
           interval: weekly
+
+      cooldown:
+          default-days: 3
+
+      commit-message:
+          prefix: build
 
       groups:
           github-actions:
               patterns:
                   - '*'
 
+      pull-request-branch-name:
+          prefix: build
+          branch-name-case: lowercase
+          template: '{prefix}/gha/{name}'
+
     - package-ecosystem: npm
       directory: /
 
+      assignees:
+          - adryeeel
+
+      labels:
+          - build
+
       schedule:
           interval: weekly
+
+      cooldown:
+          default-days: 3
+
+      commit-message:
+          prefix: build
 
       groups:
           production:
@@ -25,7 +54,30 @@ updates:
           development:
               dependency-type: development
 
-      ignore:
-          - dependency-name: typescript
-            versions:
-                - 7.x
+      pull-request-branch-name:
+          prefix: build
+          branch-name-case: lowercase
+          template: '{prefix}/pnpm/{name}'
+
+    - package-ecosystem: docker
+      directory: /
+
+      assignees:
+          - adryeeel
+
+      labels:
+          - build
+
+      schedule:
+          interval: weekly
+
+      cooldown:
+          default-days: 3
+
+      commit-message:
+          prefix: build
+
+      pull-request-branch-name:
+          prefix: build
+          branch-name-case: lowercase
+          template: '{prefix}/docker/{name}'
