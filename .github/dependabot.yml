@@ -1,50 +1,68 @@
 version: 2
 
 updates:
-    - package-ecosystem: 'github-actions'
-      directory: '/'
+    - package-ecosystem: github-actions
+      directory: /
+
+      assignes:
+          - adryeeel
+
+      labels:
+          - build
 
       schedule:
-          interval: 'weekly'
+          interval: weekly
 
       cooldown:
           default-days: 3
 
       commit-message:
-          prefix: 'build'
+          prefix: build
 
       groups:
           github-actions:
               patterns:
                   - '*'
 
-    - package-ecosystem: 'npm'
-      directory: '/'
+    - package-ecosystem: npm
+      directory: /
+
+      assignes:
+          - adryeeel
+
+      labels:
+          - build
 
       schedule:
-          interval: 'weekly'
+          interval: weekly
 
       cooldown:
           default-days: 3
 
       commit-message:
-          prefix: 'build'
+          prefix: build
 
       groups:
           production:
-              dependency-type: 'production'
+              dependency-type: production
 
           development:
-              dependency-type: 'development'
+              dependency-type: development
 
-    - package-ecosystem: 'docker'
-      directory: '/'
+    - package-ecosystem: docker
+      directory: /
+
+      assignes:
+          - adryeeel
+
+      labels:
+          - build
 
       schedule:
-          interval: 'weekly'
+          interval: weekly
 
       cooldown:
           default-days: 3
 
       commit-message:
-          prefix: 'build'
+          prefix: build
