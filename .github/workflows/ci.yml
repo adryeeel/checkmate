@@ -98,5 +98,8 @@ jobs:
             - name: Set up environment
               uses: ./.github/actions/setup
 
+            - name: Restore Next.js cache
+              uses: ./.github/actions/nextjs-cache
+
             - name: Build affected packages
               run: pnpm turbo build --affected
