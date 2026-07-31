@@ -5,6 +5,7 @@ const config: NextConfig = {
     reactCompiler: true,
     output: 'standalone',
     transpilePackages: ['@checkmate/ui'],
+    experimental: { useTypeScriptCli: true },
 };
 
 export default config;

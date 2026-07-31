@@ -10,6 +10,7 @@ concurrency:
     cancel-in-progress: true
 
 env:
+    NEXT_TELEMETRY_DISABLED: 1
     TURBO_TELEMETRY_DISABLED: 1
     TURBO_TEAM: ${{ vars.TURBO_TEAM }}
     TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
@@ -97,6 +98,9 @@ jobs:
 
             - name: Set up environment
               uses: ./.github/actions/setup
+
+            - name: Restore Next.js cache
+              uses: ./.github/actions/nextjs-cache
 
             - name: Build affected packages
               run: pnpm turbo build --affected
