@@ -24,6 +24,11 @@ updates:
               patterns:
                   - '*'
 
+      pull-request-branch-name:
+          prefix: build
+          branch-name-case: lowercase
+          template: '{prefix}/gha/{name}'
+
     - package-ecosystem: npm
       directory: /
 
@@ -49,6 +54,11 @@ updates:
           development:
               dependency-type: development
 
+      pull-request-branch-name:
+          prefix: build
+          branch-name-case: lowercase
+          template: '{prefix}/pnpm/{name}'
+
     - package-ecosystem: docker
       directory: /
 
@@ -66,3 +76,8 @@ updates:
 
       commit-message:
           prefix: build
+
+      pull-request-branch-name:
+          prefix: build
+          branch-name-case: lowercase
+          template: '{prefix}/docker/{name}'
