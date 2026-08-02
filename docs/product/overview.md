@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Checkmate is a platform that manages structured work execution, team assignment, and automated billing for service-based businesses.
+Checkmate is intended to be a platform that helps service-based businesses manage structured work execution, team assignment, and billing in a more consistent way.
+
+This document describes the product direction and intended user experience rather than a fully implemented system. The current repository shows an early frontend foundation, so the product description should be treated as a working product vision that will evolve as the product matures.
 
 ## The Problem
 
@@ -43,3 +45,14 @@ Checkmate uses a **structured workflow pattern** where work is explicitly assign
 | Manual coordination | Structured workflows eliminate ad-hoc coordination |
 | Invoice delays      | Automated invoice generation on completion         |
 | No audit trail      | Immutable logs of all key actions                  |
+
+## Product Implications
+
+The product direction suggests a clear separation between the core phases of work:
+
+- work intake and planning
+- team assignment and execution
+- review and approval
+- completion and billing
+
+A strong product experience should make these phases visible, understandable, and accountable for the people involved.

@@ -1,167 +1,160 @@
-# Core Features
+e# Core Features
 
-This document describes the core capabilities and features provided by Checkmate.
+This document describes the core capability areas that appear to be part of Checkmate's intended product direction. Because the repository is still in an early stage, these areas should be treated as product guidance rather than finalized, fully implemented features.
 
 ## 1. Work Initiation & Management
 
-**Purpose**: Create and manage structured units of client work
+**Purpose**: Create and manage structured units of client work.
 
 **Capabilities**:
 
-- Create new work items with title, description, scope, and expected cost
-- Define work requirements and acceptance criteria
+- Create work items with the core information needed to describe the request
+- Define the scope and expected delivery context for each work item
 - Track work from initiation through completion and billing
-- Edit work details before team assignment
-- View all work items with filtering and search
-- Export work data and reports
+- Edit work details before team assignment is finalized
+- View work items in a structured way that supports coordination and review
+- Generate reporting views from the captured work data
 
 **Key Behaviors**:
 
-- Work flows through the system from initiation to completion
-- All work transitions are enforced and logged
-- Work details are locked after team assignment begins
-- Clear ownership and assignment visibility
+- Work moves through a defined lifecycle from initiation to completion
+- Work transitions are recorded as part of the product experience
+- Work details become more constrained once assignment begins
+- Ownership and responsibility become clearer as work progresses
 
 ## 2. Team Assignment System
 
-**Purpose**: Assign teams and employees to work with defined permissions
+**Purpose**: Assign the right people or teams to work with clearly defined responsibilities.
 
 **Capabilities**:
 
-- Assign teams of one or more employees to work
-- Define assignment timing (upfront or phased)
-- View all assignments across the system
-- Reassign teams if needed (before execution starts)
-- Track historical assignments in audit logs
-- Set execution permissions based on assignment
+- Assign one or more employees or teams to a work item
+- Define assignment timing in a way that fits the workflow
+- Review assignments across the system
+- Reassign work when needed before execution is well underway
+- Preserve assignment history for accountability
+- Connect assignment decisions to the access and permissions model
 
 **Key Behaviors**:
 
-- Only assigned employees can execute work
-- Assignments define who can update work status
-- Unassigned employees cannot see the work
-- Multiple employees can be assigned to one work item
-- Assignments create role-based access control
+- Assigned people are the primary actors for execution
+- Assignments define who can participate in the work lifecycle
+- Unassigned users do not gain access to the work by default
+- Multiple contributors can be involved in a single work item
+- Assignment decisions help create a clear ownership structure
 
 ## 3. Work Execution Tracking
 
-**Purpose**: Track progress of assigned work from start to submission
+**Purpose**: Support day-to-day progress tracking as work moves toward completion.
 
 **Capabilities**:
 
-- Employees update internal progress status
-- Track work from start to completion submission
-- Provide notes and updates during execution
-- Link deliverables and artifacts to work items
-- Monitor real-time execution status
-- View progress history and changes
+- Let assigned users update the status of their work
+- Track work from the start of execution to the point of review
+- Record notes and progress updates during execution
+- Attach relevant deliverables or supporting artifacts to the work item
+- Monitor execution status as work advances
+- Review progress history over time
 
 **Key Behaviors**:
 
-- Only assigned employees can update status
-- Status updates move work through the execution phase
-- Work-in-progress is visible to manager and assigned team
-- Status history is recorded for audit purposes
-- Work becomes locked once submitted for review
+- Only assigned users can update execution status
+- Status updates reflect the active state of the work
+- Work in progress remains visible to the relevant team and manager
+- Progress history supports accountability and review
+- Work becomes more constrained once it is submitted for review
 
 ## 4. Review & Approval System
 
-**Purpose**: Ensure managerial validation of completed work before billing
+**Purpose**: Provide a controlled review step before work is considered complete and ready for downstream processes.
 
 **Capabilities**:
 
-- Managers review submitted work
-- Approve work that meets requirements
-- Reject work with specific feedback
-- Return work for revision without penalty
-- Set approval criteria and requirements
-- Track approval history per manager
+- Let managers review submitted work
+- Approve work that meets the stated requirements
+- Reject work with clear feedback for revision
+- Return work to the execution phase when necessary
+- Capture review criteria and approval history over time
+- Support a clear decision point before billing and closure
 
 **Key Behaviors**:
 
-- Rejection returns work to execution phase
-- Approval automatically triggers invoice generation
-- Feedback is visible to team on rejection
-- One approval required per work item
-- Approval decision is immutable (logged in audit)
+- Rejection returns work to execution with actionable feedback
+- Approval marks a clear completion point in the workflow
+- Feedback remains visible to the team after rejection
+- A single approval decision can complete the review for a work item
+- Approval outcomes are preserved as part of the audit trail
 
 ## 5. Billing & Reporting System
 
-**Purpose**: Automate invoice and report generation based on completed work
+**Purpose**: Turn approved work into the reporting and billing artifacts that support business operations.
 
 **Capabilities**:
 
-- Automatically generate Work Reports upon approval
-- Automatically generate Invoices with client details
-- Customize invoice formatting and details
-- Auto-send invoices to configured client contact
-- Track invoice status and delivery
-- Export invoices and reports
-- View billing history and payment tracking
+- Generate reporting output when work reaches completion
+- Generate invoice-ready data from completed work records
+- Support client-facing billing documents and related summaries
+- Track the status of generated billing artifacts over time
+- Export invoices and reports as needed
+- Review billing history in a structured way
 
 **Key Behaviors**:
 
-- Reports generate automatically when work is approved
-- Invoices are generated from Work Report data
-- Invoices include work summary, pricing, and terms
-- Client automatically receives invoice upon generation
-- Invoice delivery is tracked and logged
-- Billing is triggered only after manager approval
+- Reporting and billing are tied to completed and approved work
+- Downstream outputs are generated from the system's record of completion
+- Billing artifacts are connected to the broader work lifecycle
+- Delivery and status updates can be preserved as part of the process
 
 ## 6. Audit Log System
 
-**Purpose**: Provide immutable, comprehensive tracking of all key system actions
+**Purpose**: Preserve a trustworthy record of important actions and decisions across the product.
 
 **Capabilities**:
 
-- Record all state transitions with timestamp and actor
-- Log all team assignments and changes
-- Track all approval and rejection decisions
-- Record invoice generation and delivery events
-- Log user logins and account changes
-- Export audit logs for compliance and reporting
-- Filter audit logs by date, actor, action, or work request
+- Record workflow transitions with timestamp and actor context
+- Log assignment and reassignment activity
+- Track approval and rejection decisions
+- Capture billing and reporting-related events
+- Preserve account and access-related changes
+- Support review of historical activity over time
 
 **Key Behaviors**:
 
-- All audit entries are immutable (cannot be edited or deleted)
-- Timestamps are precise (to the second)
-- Actor information (user ID and name) is recorded
-- Detailed context is captured for each action
-- Audit logs are accessible to Admins and authorized Managers
-- Historical records are maintained indefinitely
+- Audit records are treated as durable and traceable
+- Important actions are captured with enough detail to support review
+- The product can provide a clear history of what happened and when
+- Audit information supports accountability and operational oversight
 
 ## 7. User & Permissions Management
 
-**Purpose**: Manage user accounts and role-based access control
+**Purpose**: Support role-based access and accountable user management.
 
 **Capabilities**:
 
 - Create and manage user accounts
-- Assign roles (Admin, Manager, Employee)
-- Configure user permissions based on roles
-- Manage user status (active/inactive)
-- Set password policies and reset procedures
-- Configure two-factor authentication
-- Track user activity and login history
+- Assign roles such as admin, manager, and employee
+- Connect role definitions with the product's permission model
+- Manage user status and account lifecycle
+- Support secure access practices as the product evolves
+- Trace account-related activity over time
 
 **Key Behaviors**:
 
-- Role-based access control enforces permissions
-- Permissions are enforced at action level (not just UI)
-- Deleted users do not remove their historical work records
-- User changes are logged in audit trail
+- Permissions are tied to roles and responsibilities
+- Access control is enforced beyond the visible user interface
+- Historical work records remain meaningful even as users change over time
+- User changes are captured as part of the product's accountability model
 
 ## Feature Interactions
 
 ### Complete Work Lifecycle
 
-1. **Manager initiates work** → Triggers Work Initiation & Management
-2. **Manager assigns team** → Triggers Team Assignment System
-3. **Employees update progress** → Triggers Work Execution Tracking
-4. **Employee submits work** → Moves to approval phase
-5. **Manager approves** → Triggers Review & Approval System
-6. **Invoice auto-generates** → Triggers Billing & Reporting System
-7. **All actions logged** → Triggers Audit Log System
+1. **Work is created and defined** → enters the work initiation and management experience
+2. **A team is assigned** → connects the work to the responsible people and permissions
+3. **Progress is updated** → reflects execution activity and status changes
+4. **Work is submitted for review** → moves into the approval phase
+5. **A review decision is made** → determines whether the work is completed or returned for revision
+6. **Billing and reporting outputs are generated** → follow the approved completion state
+7. **Important actions are recorded** → maintain accountability and traceability
 
-This integration creates a seamless, auditable path from initiation to billing.
+Together, these areas describe a coherent product journey from initiation to billing.
