@@ -1,5 +1,9 @@
+build
+node_modules
+
 .turbo
 .next
 next-env.d.ts
-build
-node_modules
+
+.env
+.env.*
