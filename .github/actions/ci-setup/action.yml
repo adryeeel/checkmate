@@ -1,8 +1,8 @@
-name: Setup
+name: CI Setup
 description: Set up the environment for CI workflow
 
 runs:
-    using: 'composite'
+    using: composite
     steps:
         - name: Set up Node.js
           uses: actions/setup-node@v7

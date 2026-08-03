@@ -1,0 +1,20 @@
+name: Build and Push
+description: Build and push a service to GHCR.
+
+inputs:
+    name:
+        description: Name of the service to the published.
+        required: true
+
+runs:
+    using: composite
+    steps:
+        - uses: docker/build-push-action@v7
+          with:
+              push: true
+              context: ./apps/${{ inputs.name }}
+              cache-from: type=gha,scope=${{ inputs.name }}
+              cache-to: type=gha,mode=max,scope=${{ inputs.name }}
+              tags: |
+                  ghcr.io/${{ github.repository }}/${{ inputs.name }}:latest
+                  ghcr.io/${{ github.repository }}/${{ inputs.name }}:${{ github.sha }}
