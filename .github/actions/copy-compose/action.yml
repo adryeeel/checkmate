@@ -1,0 +1,27 @@
+name: Copy Docker Compose
+description: Copy the Docker Compose file to a VPS using SSH.
+
+inputs:
+    host:
+        description: VPS host address.
+        required: true
+
+    key:
+        description: SSH private key for authentication.
+        required: true
+
+    username:
+        description: SSH username for login.
+        required: true
+
+runs:
+    using: composite
+    steps:
+        - uses: appleboy/scp-action@v1
+          with:
+              key: ${{ inputs.key }}
+              host: ${{ inputs.host }}
+              username: ${{ inputs.username }}
+
+              source: ./compose.yml
+              target: /home/${{ inputs.username }}/checkmate/compose.yml
