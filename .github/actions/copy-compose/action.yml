@@ -2,6 +2,10 @@ name: Copy Docker Compose
 description: Copy the Docker Compose file to a VPS using SSH.
 
 inputs:
+    project:
+        description: Name of the project.
+        required: true
+
     host:
         description: VPS host address.
         required: true
@@ -24,4 +28,4 @@ runs:
               username: ${{ inputs.username }}
 
               source: ./compose.yml
-              target: /home/${{ inputs.username }}/checkmate/compose.yml
+              target: /home/${{ inputs.username }}/${{ inputs.project }}
