@@ -1,9 +1,17 @@
-name: Build, Publish and Deploy
+name: CD
 
 on:
     push:
         branches: [master]
     workflow_dispatch:
+
+concurrency:
+    group: cd-${{ github.ref }}
+    cancel-in-progress: true
+
+permissions:
+    contents: read
+    packages: write
 
 jobs:
     build-and-push:
@@ -12,10 +20,6 @@ jobs:
         strategy:
             matrix:
                 service: [web]
-
-        permissions:
-            contents: read
-            packages: write
 
         steps:
             - name: Set up code
