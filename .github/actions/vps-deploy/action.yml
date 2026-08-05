@@ -14,6 +14,11 @@ inputs:
         description: SSH private key for authentication.
         required: true
 
+    port:
+        description: SSH port for connection.
+        required: false
+        default: 22
+
     username:
         description: SSH username for login.
         required: true
@@ -29,6 +34,7 @@ runs:
           with:
               key: ${{ inputs.key }}
               host: ${{ inputs.host }}
+              port: ${{ inputs.port }}
               username: ${{ inputs.username }}
 
               script: |
