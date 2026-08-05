@@ -1,7 +1,7 @@
 services:
-    web:
+    cm-web:
         image: ghcr.io/${GITHUB_REPOSITORY}/web:latest
-        container_name: web
+        container_name: cm-web
         restart: unless-stopped
 
         env_file:
@@ -20,3 +20,4 @@ services:
 
 networks:
     proxy:
+        external: true
