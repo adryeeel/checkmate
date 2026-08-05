@@ -12,7 +12,8 @@ runs:
         - uses: docker/build-push-action@v7
           with:
               push: true
-              context: ./apps/${{ inputs.name }}
+              context: .
+              file: ./apps/${{ inputs.name }}/dockerfile
               cache-from: type=gha,scope=${{ inputs.name }}
               cache-to: type=gha,mode=max,scope=${{ inputs.name }}
               tags: |
