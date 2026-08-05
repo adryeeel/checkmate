@@ -25,6 +25,8 @@ RUN pnpm i --frozen-lockfile
 # Build stage
 FROM base AS builder
 
+ARG TURBO_TEAM
+
 COPY --from=deps /app .
 COPY --from=pruner /app/out/full .
 
