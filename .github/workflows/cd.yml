@@ -39,6 +39,8 @@ jobs:
               uses: ./.github/actions/build-push
               with:
                   name: ${{ matrix.service }}
+                  turbo_team: ${{ vars.TURBO_TEAM }}
+                  turbo_token: ${{ secrets.TURBO_TOKEN }}
 
     deploy:
         needs: build-and-push

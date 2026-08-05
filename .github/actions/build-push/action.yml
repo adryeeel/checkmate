@@ -6,16 +6,33 @@ inputs:
         description: Name of the service to the published.
         required: true
 
+    turbo_team:
+        description: Turborepo Remote Cache team to cache build tasks.
+        required: true
+
+    turbo_token:
+        description: Turborepo Remote Cache token to cache build tasks.
+        required: true
+
 runs:
     using: composite
     steps:
         - uses: docker/build-push-action@v7
           with:
               push: true
+
               context: .
               file: ./apps/${{ inputs.name }}/Dockerfile
-              cache-from: type=gha,scope=${{ inputs.name }}
-              cache-to: type=gha,mode=max,scope=${{ inputs.name }}
+
+              secrets: |
+                  TURBO_TOKEN=${{ inputs.turbo_token }}
+
+              build-args: |
+                  TURBO_TEAM=${{ inputs.turbo_team }}
+
               tags: |
                   ghcr.io/${{ github.repository }}/${{ inputs.name }}:latest
                   ghcr.io/${{ github.repository }}/${{ inputs.name }}:${{ github.sha }}
+
+              cache-from: type=gha,scope=${{ inputs.name }}
+              cache-to: type=gha,mode=max,scope=${{ inputs.name }}
