@@ -1,3 +1,6 @@
+compose.yml
+*.config.ts
+
 node_modules
 **/node_modules
 
@@ -5,8 +8,10 @@ node_modules
 .turbo
 
 .git
+.github
 .gitignore
 
+*.md
 *.log
 pnpm-debug.log*
 

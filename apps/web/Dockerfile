@@ -28,7 +28,10 @@ FROM base AS builder
 COPY --from=deps /app .
 COPY --from=pruner /app/out/full .
 
-RUN turbo run web#build
+RUN --mount=type=secret,id=TURBO_TOKEN \ 
+    TURBO_TOKEN=$(cat /run/secrets/TURBO_TOKEN) \
+    TURBO_TEAM=${TURBO_TEAM} \
+    turbo run web#build
 
 # Runtime stage
 FROM node:26-alpine AS runner
